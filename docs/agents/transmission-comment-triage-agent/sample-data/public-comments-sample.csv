@@ -1,0 +1,4 @@
+CommentId,SubmittedOn,ProjectName,CommentText,Category,Urgency,NeedsHumanReview,DraftResponse,Owner,Status,SourceUrl
+COM-001,2026-10-23,Claysville,"How will this affect nearby wetlands and creeks?",,,"TRUE",,cao.owner@tva.example,New,https://www.tva.com/energy/transmission/transmission-projects/claysville-alabama
+COM-002,2026-10-23,Jones Chapel,"Why did the schedule move and when will construction begin?",,,"TRUE",,transmission.owner@tva.example,New,https://www.tva.com/energy/transmission/transmission-projects/jones-chapel-alabama
+COM-003,2026-10-23,Star Gap,"Who do I contact about right-of-way access concerns?",,,"TRUE",,it.owner@tva.example,New,https://www.tva.com/energy/transmission/transmission-projects/star-gap--alabama-(fort-payne--dekalb-county)
