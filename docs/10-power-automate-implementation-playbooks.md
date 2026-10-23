@@ -32,6 +32,8 @@
 8. On rejection, mark `Revision Required` and return to owner.
 9. Persist audit fields on `{{TVA_PUBLICCOMMENTS_LIST_NAME}}`: `FlowRunId`, `AgentVersion`, `Approver`, `ApprovalDecision`, `DecisionTimestamp`, `PublishedArtifactLink`.
 
+**Status vocabulary note:** Flow 2 uses `Approved for Response` / `Revision Required` because it tracks communication readiness, while Flow 1 and Flow 3 use `Draft` / `Published` / `Needs Revision` for artifact lifecycle states.
+
 ## Flow 3: Strategic brief pack publisher
 
 **What the flow does:** creates a strategic brief draft, routes approval, and publishes approved artifacts.

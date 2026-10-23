@@ -1,4 +1,4 @@
-RequestId,RequestedBy,Audience,DueDate,PriorityTheme,ProjectsIncluded,DraftBrief,ApprovalStatus,PublishedLink,FlowRunId,AgentVersion,Approver,ApprovalDecision,DecisionTimestamp,PublishedArtifactLink
+RequestId,RequestedBy,Audience,DueDate,PriorityTheme,ProjectsIncluded,DraftBrief,ApprovalStatus,FlowRunId,AgentVersion,Approver,ApprovalDecision,DecisionTimestamp,PublishedArtifactLink
 REQ-001,finance.owner@tva.example,Finance,2026-11-01,Affordability and Financial Strength,"Claysville; Jones Chapel",,New,,,,,,
 REQ-002,generation.owner@tva.example,Nuclear/Generation,2026-11-01,Operational Excellence and Reliability,"Transmission System Projects (Alabama)",,New,,,,,,
 REQ-003,cao.owner@tva.example,CAO,2026-11-01,Powerful Partnerships and Community Impact,"Public comment and project communication",,New,,,,,,

@@ -45,7 +45,7 @@ Create site `{{TVA_SHAREPOINT_SITE_URL}}` with:
 - **List:** `{{TVA_PUBLICCOMMENTS_LIST_NAME}}`
   - Columns: `CommentId`, `SubmittedOn`, `ProjectName`, `CommentText`, `Category`, `Urgency`, `NeedsHumanReview`, `DraftResponse`, `Owner`, `Status`, `SourceUrl`, `FlowRunId`, `AgentVersion`, `Approver`, `ApprovalDecision`, `DecisionTimestamp`, `PublishedArtifactLink`
 - **List:** `{{TVA_BRIEFREQUESTS_LIST_NAME}}`
-  - Columns: `RequestId`, `RequestedBy`, `Audience`, `DueDate`, `PriorityTheme`, `ProjectsIncluded`, `DraftBrief`, `ApprovalStatus`, `PublishedLink`, `FlowRunId`, `AgentVersion`, `Approver`, `ApprovalDecision`, `DecisionTimestamp`, `PublishedArtifactLink`
+  - Columns: `RequestId`, `RequestedBy`, `Audience`, `DueDate`, `PriorityTheme`, `ProjectsIncluded`, `DraftBrief`, `ApprovalStatus`, `FlowRunId`, `AgentVersion`, `Approver`, `ApprovalDecision`, `DecisionTimestamp`, `PublishedArtifactLink`
 
 ## OneDrive structure (optional personal working area)
 
