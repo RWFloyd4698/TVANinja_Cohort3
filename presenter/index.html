@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>TVA Ninja Cohort 3 – Agentic Workflow Workshop (GCC)</title>
+<style>
+:root{--navy:#0b1f3a;--navy2:#13315c;--blue:#0f6cbd;--cyan:#38bdf8;--teal:#14b8a6;--amber:#f59e0b;--green:#16a34a;--red:#dc2626;--ink:#0f172a;--muted:#475569;--bg:#f4f7fb;--card:#ffffff;--line:#dbe3ee;--soft:#e8f1fb}
+@media (prefers-color-scheme: dark){:root{--ink:#e5edf7;--muted:#9fb0c6;--bg:#0a1424;--card:#111e33;--line:#22324d;--soft:#16294a}}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+header.top{position:sticky;inset-block-start:0;z-index:20;background:linear-gradient(90deg,var(--navy),var(--navy2));color:#fff;box-shadow:0 2px 12px rgba(0,0,0,.25)}
+.brand{display:flex;align-items:center;gap:14px;padding:10px 24px}
+.brand .logo{width:34px;height:34px;border-radius:8px;background:conic-gradient(from 0deg,#f25022 0 25%,#7fba00 0 50%,#00a4ef 0 75%,#ffb900 0);flex:none}
+.brand h1{font-size:17px;margin:0;font-weight:600;letter-spacing:.2px}
+.brand .sub{font-size:12px;opacity:.8}
+.brand .pill{margin-inline-start:auto;font-size:12px;border:1px solid rgba(255,255,255,.35);padding:4px 10px;border-radius:999px;white-space:nowrap}
+nav.tabs{display:flex;gap:4px;overflow-x:auto;padding:0 16px;scrollbar-width:thin}
+nav.tabs button{all:unset;cursor:pointer;color:#cfe0f5;font-size:13px;padding:10px 14px;border-block-end:3px solid transparent;white-space:nowrap;display:flex;gap:6px;align-items:center}
+nav.tabs button:hover{color:#fff;background:rgba(255,255,255,.06)}
+nav.tabs button.active{color:#fff;border-block-end-color:var(--cyan);font-weight:600}
+nav.tabs .tier{font-size:10px;padding:1px 6px;border-radius:6px;background:rgba(255,255,255,.15)}
+main{max-width:1280px;margin:0 auto;padding:24px}
+section.view{display:none;animation:fade .45s ease}
+section.view.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.hero{position:relative;overflow:hidden;border-radius:18px;background:radial-gradient(1200px 400px at 10% 0%,#1d4f91 0,transparent 60%),linear-gradient(135deg,var(--navy),#0a2a52);color:#fff;padding:40px 40px 34px;min-height:260px}
+.hero svg.grid{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
+.hero .content{position:relative;max-width:760px}
+.eyebrow{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);font-weight:600}
+.hero h2{font-size:34px;line-height:1.15;margin:8px 0 12px}
+.hero p{font-size:16px;opacity:.92;margin:0 0 16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:12px;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2)}
+.chip.dark{background:var(--soft);border-color:var(--line);color:var(--ink)}
+h3.sec{font-size:20px;margin:34px 0 6px}
+p.lead{color:var(--muted);margin:0 0 16px}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}.g5{grid-template-columns:repeat(5,minmax(0,1fr))}
+@media (max-width:980px){.g3,.g4,.g5{grid-template-columns:repeat(2,minmax(0,1fr))}.g2{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 1px 2px rgba(15,23,42,.04);transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(15,23,42,.08)}
+.card h4{margin:0 0 6px;font-size:15px}
+.card p{margin:0;color:var(--muted);font-size:13.5px}
+.kpi .num{font-size:28px;font-weight:700;color:var(--blue)}
+.kpi .lbl{font-size:12.5px;color:var(--muted)}
+.prio{border-block-start:4px solid var(--blue)}
+.prio .tag{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.prio ul{margin:8px 0 0;padding-inline-start:18px;font-size:13px;color:var(--muted)}
+.build{position:relative;overflow:hidden}
+.build .badge{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:6px;background:var(--soft);color:var(--blue);margin-block-end:8px}
+.build ul{margin:10px 0 0;padding-inline-start:18px;font-size:13px}
+.build .who{font-size:12px;color:var(--muted);margin-block-start:10px;border-block-start:1px dashed var(--line);padding-block-start:8px}
+table.cmp{width:100%;border-collapse:collapse;font-size:13px;background:var(--card);border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+table.cmp th,table.cmp td{padding:10px 12px;border-block-end:1px solid var(--line);text-align:start;vertical-align:top}
+table.cmp th{background:var(--navy);color:#fff;font-weight:600}
+.agentcard{cursor:pointer;display:flex;flex-direction:column;gap:6px}
+.agentcard .ic{font-size:26px}
+.agentcard .t{font-size:11px;color:var(--muted)}
+.callout{border-inline-start:4px solid var(--amber);background:var(--card);padding:14px 16px;border-radius:10px;font-size:13.5px}
+.callout b{color:var(--ink)}
+.timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.timeline .blk{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;position:relative}
+.timeline .blk .n{font-size:11px;color:var(--blue);font-weight:700}
+@media (max-width:980px){.timeline{grid-template-columns:1fr 1fr}}
+/* Agent views */
+.ahero{display:flex;gap:20px;align-items:center;background:linear-gradient(135deg,var(--navy),#123a6b);color:#fff;border-radius:18px;padding:26px 28px}
+.ahero .big{font-size:46px}
+.ahero h2{margin:0;font-size:26px}
+.ahero p{margin:4px 0 0;opacity:.9}
+.ahero .tierb{margin-inline-start:auto;text-align:end;font-size:12px}
+.cols{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;margin-block-start:16px}
+@media (max-width:980px){.cols{grid-template-columns:1fr}}
+ul.clean{list-style:none;margin:8px 0 0;padding:0}
+ul.clean li{padding:6px 0 6px 0;border-block-end:1px dashed var(--line);font-size:13.5px;display:flex;gap:8px}
+ul.clean li::before{content:"▸";color:var(--blue)}
+.pchips{display:flex;flex-wrap:wrap;gap:6px;margin-block-start:8px}
+.pchip{font-size:11.5px;padding:3px 9px;border-radius:999px;background:var(--soft);color:var(--ink);border:1px solid var(--line)}
+.pchip.p{background:#0f6cbd;color:#fff;border-color:#0f6cbd}
+/* workflow */
+.wf{background:var(--card);border:1px solid var(--line);border-radius:16px;margin-block-start:16px;overflow:hidden}
+.wfbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px 16px;border-block-end:1px solid var(--line);background:var(--soft)}
+.wfbar h4{margin:0;font-size:15px;margin-inline-end:auto}
+.btn{all:unset;cursor:pointer;font-size:12.5px;font-weight:600;padding:7px 12px;border-radius:8px;background:var(--blue);color:#fff;display:inline-flex;gap:6px;align-items:center}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn.ok{background:var(--green)}.btn.no{background:var(--red)}
+.btn.sel{outline:2px solid var(--cyan);outline-offset:1px}
+.wfbody{display:grid;grid-template-columns:1fr 340px}
+@media (max-width:1100px){.wfbody{grid-template-columns:1fr}}
+.stage{position:relative;padding:8px}
+.stage svg{width:100%;height:auto;display:block}
+.node rect{fill:var(--card);stroke:var(--line);stroke-width:1.5;transition:all .3s}
+.node text{fill:var(--ink);font-size:12px;font-family:inherit}
+.node .ico{font-size:20px}
+.node .nsub{fill:var(--muted);font-size:10px}
+.node.active rect{stroke:var(--cyan);stroke-width:3;filter:drop-shadow(0 0 10px rgba(56,189,248,.8))}
+.node.done rect{stroke:var(--teal);stroke-width:2}
+.node.okn.active rect{stroke:var(--green);filter:drop-shadow(0 0 10px rgba(22,163,74,.8))}
+.node.non.active rect{stroke:var(--red);filter:drop-shadow(0 0 10px rgba(220,38,38,.8))}
+.edge{stroke:var(--line);stroke-width:2;fill:none}
+.edge.on{stroke:var(--cyan);stroke-width:3;stroke-dasharray:8 6;animation:dash .6s linear infinite}
+.edge.trail{stroke:var(--teal);stroke-width:2.5}
+@keyframes dash{to{stroke-dashoffset:-14}}
+.token{fill:#ffb900;filter:drop-shadow(0 0 8px rgba(255,185,0,.95))}
+.lane{fill:var(--soft);opacity:.55}
+.lanelbl{fill:var(--muted);font-size:10px;letter-spacing:1.5px;text-transform:uppercase}
+.side{border-inline-start:1px solid var(--line);display:flex;flex-direction:column;min-height:420px}
+@media (max-width:1100px){.side{border-inline-start:none;border-block-start:1px solid var(--line)}}
+.chat{padding:12px;display:flex;flex-direction:column;gap:8px;flex:1;overflow:auto;max-height:330px}
+.bub{font-size:12.5px;padding:9px 11px;border-radius:12px;max-width:95%;white-space:pre-wrap;word-break:break-word}
+.bub.u{align-self:flex-end;background:var(--blue);color:#fff;border-end-end-radius:3px}
+.bub.a{align-self:flex-start;background:var(--soft);border:1px solid var(--line);border-end-start-radius:3px;font-family:Consolas,"Cascadia Mono",monospace;font-size:11.5px}
+.bub.s{align-self:center;font-size:11px;color:var(--muted);background:transparent;padding:2px}
+.caret::after{content:"▌";animation:blink 1s steps(1) infinite;color:var(--blue)}
+@keyframes blink{50%{opacity:0}}
+.log{border-block-start:1px solid var(--line);padding:10px 12px;font-family:Consolas,"Cascadia Mono",monospace;font-size:11px;max-height:150px;overflow:auto;background:#0b1220;color:#9be7c4}
+.log div{opacity:0;animation:fade .3s forwards}
+.step{padding:10px 16px;border-block-start:1px solid var(--line);font-size:13px;display:flex;gap:10px;align-items:center}
+.step .n{font-weight:700;color:var(--blue);min-width:62px}
+.progress{height:4px;background:var(--line)}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--teal));transition:width .3s}
+pre.tpl{background:#0b1220;color:#d6e4ff;border-radius:10px;padding:12px;font-size:11.5px;overflow:auto;margin:8px 0 0;white-space:pre-wrap}
+.pattern{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pbox{flex:1;min-width:150px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;text-align:center;position:relative}
+.pbox b{display:block;font-size:13px}
+.pbox span{font-size:12px;color:var(--muted)}
+.parrow{font-size:20px;color:var(--blue);animation:nudge 1.4s ease-in-out infinite}
+@keyframes nudge{50%{transform:translateX(5px)}}
+footer{max-width:1280px;margin:0 auto;padding:10px 24px 40px;font-size:12px;color:var(--muted)}
+.navpn{display:flex;justify-content:space-between;margin-block-start:22px}
+@media print{header.top{position:static}section.view{display:block!important;page-break-after:always}.wfbar .btn{display:none}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <div class="logo" aria-hidden="true"></div>
+    <div><h1>TVA Ninja Cohort 3 · Agentic Workflow Workshop</h1><div class="sub">Microsoft 365 Copilot · Agent Builder · Copilot Studio · Power Automate, in TVA's GCC tenant</div></div>
+    <span class="pill">Tuesday, November 3, 2026 · GCC</span>
+  </div>
+  <nav class="tabs" id="tabs" aria-label="Workshop sections"></nav>
+</header>
+<main>
+<section class="view" id="view-home">
+  <div class="hero">
+    <svg class="grid" id="gridsvg" viewBox="0 0 1200 300" preserveAspectRatio="none" aria-hidden="true"></svg>
+    <div class="content">
+      <div class="eyebrow">Tennessee Valley Authority × Microsoft</div>
+      <h2>Agents that reason. Flows that govern.<br>Built by TVA, for the Valley.</h2>
+      <p>A hands-on agentic workshop in TVA's Microsoft 365 Government Community Cloud (GCC). Each team builds working Copilot agents and approval-backed Power Automate workflows, grounded in TVA's public FY 2026–2030 Strategic Plan and tva.com.</p>
+      <div class="chips"><span class="chip">Public TVA sources only</span><span class="chip">All data stays in Microsoft 365</span><span class="chip">A person approves every outbound message</span><span class="chip">TVA builds and owns it</span></div>
+    </div>
+  </div>
+
+  <h3 class="sec">TVA at a glance</h3>
+  <p class="lead">The scale these agents serve, from TVA's FY 2026–2030 Strategic Plan.</p>
+  <div class="grid g4">
+    <div class="card kpi"><div class="num" data-count="10" data-suffix="M">0</div><div class="lbl">people served across the 80,000-sq-mi Tennessee Valley</div></div>
+    <div class="card kpi"><div class="num" data-count="16000" data-suffix="+ mi">0</div><div class="lbl">of transmission lines, one of the nation's largest systems</div></div>
+    <div class="card kpi"><div class="num" data-count="99.999" data-dec="3" data-suffix="%">0</div><div class="lbl">transmission reliability every year since FY 2000</div></div>
+    <div class="card kpi"><div class="num" data-count="153">0</div><div class="lbl">local power companies served (148 on long-term partner agreements)</div></div>
+    <div class="card kpi"><div class="num" data-count="35430" data-suffix=" MW">0</div><div class="lbl">all-time peak demand met, January 2025</div></div>
+    <div class="card kpi"><div class="num" data-count="7">0</div><div class="lbl">states across the Southeast</div></div>
+    <div class="card kpi"><div class="num" data-count="6200" data-suffix="+ MW">0</div><div class="lbl">of new generation planned, 3,700+ MW under construction</div></div>
+    <div class="card kpi"><div class="num" data-count="11000" data-prefix="~">0</div><div class="lbl">TVA employees delivering the mission of service</div></div>
+  </div>
+
+  <h3 class="sec">Five strategic priorities, and the agents that serve them</h3>
+  <p class="lead">Every agent in this workshop maps to a priority in TVA's Strategic Plan. Select a priority to highlight its agents below.</p>
+  <div class="grid g5" id="prios"></div>
+
+  <h3 class="sec">Three ways to build agents in Microsoft 365</h3>
+  <p class="lead">Choose the simplest tool that does the job, and step up when you need actions, workflows and governance.</p>
+  <div class="grid g3">
+    <div class="card build"><span class="badge">USE</span><h4>Microsoft 365 Copilot + agents</h4><p>Copilot works across Word, Excel, PowerPoint, Outlook and Teams, grounded in the user's own permissions. Prebuilt agents such as Researcher and Analyst handle deeper work.</p>
+      <ul><li>Chat grounded in work data and the web, as your policy allows</li><li>Agents appear in the Copilot app and Teams</li><li>Enterprise data protection</li></ul>
+      <div class="who">For: every participant, every day</div></div>
+    <div class="card build"><span class="badge">DESCRIBE</span><h4>Agent Builder (in Microsoft 365 Copilot)</h4><p>Build a declarative agent with no code. Describe what you want in plain language, add SharePoint knowledge and starter prompts, then share it with your team.</p>
+      <ul><li>Natural-language Describe tab, or Configure</li><li>Knowledge: SharePoint sites, folders and files</li><li>Fastest path from idea to a working agent</li></ul>
+      <div class="who">For: Q&amp;A and briefing agents (Navigator, Siting Explainer)</div></div>
+    <div class="card build"><span class="badge">BUILD &amp; GOVERN</span><h4>Copilot Studio</h4><p>A low-code studio for agents that take action. It adds topics, generative orchestration, tools and Power Automate flows, and publishes to Teams and Microsoft 365 Copilot.</p>
+      <ul><li>Agent actions and Power Automate flows</li><li>Environments, DLP, analytics and ALM</li><li>Structured output (JSON) for workflows</li></ul>
+      <div class="who">For: triage, routing and approval workflows (all headline agents)</div></div>
+  </div>
+  <div style="margin-top:14px">
+  <table class="cmp">
+    <tr><th>Need</th><th>Microsoft 365 Copilot</th><th>Agent Builder</th><th>Copilot Studio</th></tr>
+    <tr><td>Answer questions over public TVA documents</td><td>✔ (ad hoc)</td><td>✔ Best fit</td><td>✔</td></tr>
+    <tr><td>Consistent output template per audience</td><td>–</td><td>✔ Instructions</td><td>✔ Topics + instructions</td></tr>
+    <tr><td>Write to SharePoint lists, create Planner tasks</td><td>–</td><td>–</td><td>✔ Via Power Automate</td></tr>
+    <tr><td>Human approval before anything is sent</td><td>–</td><td>–</td><td>✔ Approvals connector</td></tr>
+    <tr><td>Audit trail (run ID, approver, timestamp)</td><td>–</td><td>–</td><td>✔ Flow + list fields</td></tr>
+    <tr><td>Environment-level governance (DLP, ALM)</td><td>Tenant policy</td><td>Tenant policy</td><td>✔ Environment + DLP</td></tr>
+  </table></div>
+
+  <h3 class="sec">The pattern we build all day</h3>
+  <p class="lead">The agent reasons and drafts. The flow executes and governs.</p>
+  <div class="pattern">
+    <div class="pbox"><b>🙋 Ask</b><span>Teams or Microsoft 365 Copilot</span></div><div class="parrow">➜</div>
+    <div class="pbox"><b>🤖 Agent drafts</b><span>Copilot Studio, grounded in SharePoint</span></div><div class="parrow">➜</div>
+    <div class="pbox"><b>⚡ Flow routes</b><span>Power Automate writes to a SharePoint list</span></div><div class="parrow">➜</div>
+    <div class="pbox"><b>✅ Person approves</b><span>Approvals in Teams or Outlook</span></div><div class="parrow">➜</div>
+    <div class="pbox"><b>📣 Publish + audit</b><span>Teams post, status and audit fields</span></div>
+  </div>
+
+  <h3 class="sec">Agent portfolio</h3>
+  <p class="lead">Tier A agents are the workshop deliverables. Tier B agents are the core extensions. Select any card to open its live workflow.</p>
+  <div class="grid g4" id="agentgrid"></div>
+
+  <h3 class="sec">Workshop day</h3>
+  <div class="timeline">
+    <div class="blk"><div class="n">BLOCK 1</div><b>Kickoff + architecture</b><p class="lead" style="margin:4px 0 0;font-size:12.5px">The M365 agentic model, guardrails and governance</p></div>
+    <div class="blk"><div class="n">BLOCK 2</div><b>Data + environment</b><p class="lead" style="margin:4px 0 0;font-size:12.5px">SharePoint library, 4 lists and sample rows</p></div>
+    <div class="blk"><div class="n">BLOCK 3</div><b>Agent build labs</b><p class="lead" style="margin:4px 0 0;font-size:12.5px">Pairs build one agent (25–35 min)</p></div>
+    <div class="blk"><div class="n">BLOCK 4</div><b>Power Automate wiring</b><p class="lead" style="margin:4px 0 0;font-size:12.5px">Connect an approval flow (20–30 min, or pre-staged)</p></div>
+    <div class="blk"><div class="n">BLOCK 5</div><b>Team demos + capstone</b><p class="lead" style="margin:4px 0 0;font-size:12.5px">Agent + workflow + governance path</p></div>
+  </div>
+  <p class="lead" style="margin-top:10px">Breakouts: <b>Transmission + Generation</b> (project state and dependencies) · <b>Finance + Nuclear</b> (strategy and reliability narrative) · <b>IT + CAO</b> (workflow governance, approvals and communications)</p>
+
+  <h3 class="sec">Ready for GCC</h3>
+  <div class="grid g2">
+    <div class="callout"><b>What's available.</b> Microsoft 365 Copilot has been generally available in GCC since December 2024. Agent Builder is available in GCC. Copilot Studio offers US Government (GCC) plans and environments.</div>
+    <div class="callout"><b>Check before class.</b> In GCC, Agent Builder doesn't support embedded file content as a knowledge source, so use SharePoint sites and folders. Put SharePoint, Approvals, Teams, Outlook, Planner and the Copilot Studio connectors in the same DLP "Business" group, and use a dedicated environment.</div>
+  </div>
+</section>
+</main>
+<footer>Prepared by Microsoft for the TVA Ninja Cohort 3 workshop. TVA facts come from TVA's public FY 2026–2030 Strategic Plan (March 2026) and tva.com. Sample data is for the workshop only and should be re-validated against tva.com before external use. Use ← → arrow keys to move between tabs.</footer>
+<script>
+const AGENTS = [
+{ id:"navigator", tier:"A", name:"Transmission Planning Navigator", short:"Navigator", icon:"🗺️",
+  tagline:"Plain-language status for every public TVA transmission project.",
+  purpose:"Explains TVA transmission projects, lifecycle stages and schedule milestones using public TVA sources, then drafts a status snapshot that is approved before anyone sees it.",
+  teams:["Transmission","Generation A","Generation B – Dam Mgmt","IT","CAO"],
+  priorities:["Operational Excellence","Powerful Partnerships"],
+  metric:"Supports the Operational Excellence story behind <b>Load Not Served</b> and TVA's 16,000+ mile transmission system.",
+  outcomes:["Summarize a project by state, county or name","Explain where a project sits in the lifecycle","Draft a plain-language snapshot for stakeholders"],
+  knowledge:["Knowledge-Public / Transmission-Projects","Knowledge-Public / Strategic-Plan","TransmissionProjects list"],
+  flow:"Transmission Update Draft Approval", list:"TransmissionUpdateDrafts", statusOk:"Published", statusNo:"Needs Revision",
+  prompt:"Summarize the Crossville transmission project. What stage is it in, and is it open for public comment?",
+  response:`Transmission Project Snapshot
+- Project: Crossville
+- State/County: Alabama / DeKalb
+- Current stage: Siting
+- Public comment status: Open — comments accepted through December 3, 2026
+- Key schedule milestones: Preferred route determined Spring 2027
+- Source links: tva.com › Transmission Projects › Crossville
+- Notes requiring human verification: Re-validate the comment window before external use.`,
+  payload:{ProjectName:"Crossville",Stage:"Siting",PublicCommentStatus:"Open",Status:"Draft"} },
+
+{ id:"briefing", tier:"A", name:"Strategic Alignment Briefing Agent", short:"Briefing", icon:"🎯",
+  tagline:"Turn public strategy into audience-ready briefs.",
+  purpose:"Turns TVA's FY26–FY30 Strategic Plan and public project information into audience-specific briefs and talk tracks for Finance, Nuclear, Generation, Transmission, IT and CAO teams.",
+  teams:["Nuclear","Finance","Generation","Transmission","IT","CAO"],
+  priorities:["People Advantage","Operational Excellence","Financial Strength","Powerful Partnerships","Igniting Innovation"],
+  metric:"Maps every brief to the five strategic priorities and their published metrics: Retail Rates, Total Spend, Load Not Served, New & Retained Jobs and others.",
+  outcomes:["Executive, finance, operations or community briefs","Strategic-priority mapping with evidence","Meeting-ready talk tracks with sources"],
+  knowledge:["Knowledge-Public / Strategic-Plan","Knowledge-Public / Transmission-Projects","Knowledge-Public / Powerhouse-Stories"],
+  flow:"Strategic Brief Pack Publisher", list:"ExecutiveBriefRequests", statusOk:"Published", statusNo:"Needs Revision",
+  prompt:"Create a finance briefing on Claysville and Jones Chapel tied to Affordability and Financial Strength.",
+  response:`Strategic Alignment Brief
+- Audience: Finance
+- Topic: Claysville + Jones Chapel transmission projects
+- Strategic priority mapping: Financial Strength — "investing in our future, while keeping energy costs as low as feasible"; Operational Excellence — reliable service
+- Key supporting evidence: Claysville in service (Summer 2024); Jones Chapel in Survey/Realty, construction Winter 2026–2027
+- Risks and constraints: Project cost figures not in public sources
+- Recommended next action: Review with Finance goal leader
+- Needs human verification: Cost and rate-impact figures`,
+  payload:{RequestId:"REQ-001",Audience:"Finance",ApprovalStatus:"New"} },
+
+{ id:"triage", tier:"A", name:"Transmission Comment Triage Agent", short:"Triage", icon:"🧭",
+  tagline:"Classify, route and draft. A person approves every response.",
+  purpose:"Classifies transmission-related public comments by category and urgency, recommends an owner, drafts a response and hands structured JSON to Power Automate for routing and approval.",
+  teams:["Transmission","IT","CAO"],
+  priorities:["Powerful Partnerships","Operational Excellence"],
+  metric:"Supports Powerful Partnerships: building strong relationships with customers, communities and stakeholders.",
+  outcomes:["Category and urgency classification","Owner recommendation and next step","Approval-ready draft response + JSON payload"],
+  knowledge:["PublicComments list","Routing rules","Knowledge-Public / Transmission-Projects"],
+  flow:"Public Comment Triage Routing", list:"PublicComments", statusOk:"Approved for Response", statusNo:"Revision Required", planner:true,
+  prompt:"New comment COM-003 on Star Gap: \"Who do I contact about right-of-way access concerns?\"",
+  response:`{
+  "category": "property",
+  "urgency": "high",
+  "recommendedOwner": "transmission.owner@tva.example",
+  "nextStep": "Assign right-of-way contact follow-up",
+  "draftResponse": "Thank you for reaching out about the Star Gap project. A member of our transmission team will follow up about right-of-way access...",
+  "needsHumanReview": true,
+  "sourceLinks": ["tva.com › Transmission Projects › Star Gap"]
+}`,
+  payload:{CommentId:"COM-003",Category:"property",Urgency:"high",Owner:"transmission.owner"} },
+
+{ id:"siting", tier:"B", name:"Transmission Siting Explainer", short:"Siting", icon:"📍",
+  tagline:"From planning to in-service, explained in plain language.",
+  purpose:"Explains TVA's transmission siting lifecycle (planning, siting, environmental review, survey/realty, construction, in service) in plain language for participants and community stakeholders.",
+  teams:["Transmission","CAO","Gov Relations"],
+  priorities:["Powerful Partnerships","Operational Excellence"],
+  metric:"Makes TVA's siting process clear to the communities it serves.",
+  outcomes:["Explain each lifecycle stage","Summarize project schedule checkpoints","Flag stale or missing data"],
+  knowledge:["Knowledge-Public / Transmission-Projects","Siting stages sample"],
+  flow:"Transmission Update Draft Approval", list:"TransmissionUpdateDrafts", statusOk:"Published", statusNo:"Needs Revision",
+  prompt:"What happens after route selection? Use Star Gap as the example.",
+  response:`Siting Explanation Brief
+- Project: Star Gap (DeKalb County, AL)
+- Stage (controlled value): Survey/Realty
+- Stage summary: After a route is chosen, crews survey the right-of-way and TVA works with landowners on easements.
+- Schedule checkpoints: Surveys Summer–Fall 2025; easement purchases Fall 2026–Winter 2026-2027
+- Stakeholder guidance: Landowners can contact the project team listed on the project page
+- Notes requiring human verification: Confirm schedule before external use`,
+  payload:{ProjectName:"Star Gap",Stage:"Survey/Realty",Status:"Draft"} },
+
+{ id:"coach", tier:"B", name:"Public Comment Response Coach", short:"Response Coach", icon:"💬",
+  tagline:"Clear, neutral, verified response options.",
+  purpose:"Drafts clear, neutral response options for public transmission comments, suggests what to verify first and prepares everything for human approval.",
+  teams:["CAO – Community","Transmission Comms","Gov Relations"],
+  priorities:["Powerful Partnerships"],
+  metric:"Supports TVA's stakeholder engagement commitments and the Powerful Partnerships Survey.",
+  outcomes:["Response options from raw comments","Public-safe tone grounded in facts","Verification checklist before release"],
+  knowledge:["PublicComments list","Knowledge-Public / Transmission-Projects","Knowledge-Public / Reference-Policies"],
+  flow:"Public Comment Triage Routing", list:"PublicComments", statusOk:"Approved for Response", statusNo:"Revision Required",
+  prompt:"Draft a response to COACH-001: \"Will this project affect nearby wetlands?\" (Claysville)",
+  response:`Public Response Draft
+- Comment ID: COACH-001
+- Category/Urgency: environmental / medium
+- Draft response: Thank you for your question about the Claysville project. TVA evaluates environmental resources, including wetlands, during project review...
+- Verification notes: Confirm environmental review details on the project page
+- Recommended owner: cao.owner@tva.example
+- Notes requiring human verification: Environmental findings`,
+  payload:{CommentId:"COACH-001",Category:"environmental",Status:"New"} },
+
+{ id:"tradeoff", tier:"B", name:"Reliability & Affordability Tradeoff", short:"Tradeoff", icon:"⚖️",
+  tagline:"Reliability and affordability, side by side.",
+  purpose:"Helps teams frame transmission decisions with reliability, affordability and stakeholder messaging side by side, and surfaces assumptions instead of filling gaps.",
+  teams:["Finance","Transmission","Executive Briefing"],
+  priorities:["Financial Strength","Operational Excellence"],
+  metric:"Connects to Retail Rates, Total Spend and Load Not Served, and to TVA's 99.999% reliability record since FY 2000.",
+  outcomes:["Side-by-side reliability vs. affordability view","Audience-specific framing","Explicit assumptions and uncertainty"],
+  knowledge:["Knowledge-Public / Strategic-Plan","Knowledge-Public / Transmission-Projects","Tradeoff scenarios sample"],
+  flow:"Strategic Brief Pack Publisher", list:"ExecutiveBriefRequests", statusOk:"Published", statusNo:"Needs Revision",
+  prompt:"Frame Claysville for Finance: reduce outage exposure while preserving cost discipline.",
+  response:`Reliability-Affordability Tradeoff Brief
+- Audience: Finance
+- Project: Claysville (TRD-001)
+- Reliability considerations: Reduce outage exposure; project in service Summer 2024
+- Affordability considerations: Preserve cost discipline — keep energy costs "as low as feasible"
+- Recommended framing: Reliability investment that supports competitive rates
+- Notes requiring human verification: No public cost figures — do not quote numbers`,
+  payload:{ScenarioId:"TRD-001",Audience:"Finance",ApprovalStatus:"New"} },
+
+{ id:"hearing", tier:"B", name:"Community / Gov Relations Hearing Prep", short:"Hearing Prep", icon:"🏛️",
+  tagline:"Hearing-ready briefs, Q&A and talking points.",
+  purpose:"Prepares hearing-ready briefs, likely stakeholder questions and draft talking points grounded in public TVA project data, and flags contested claims for review.",
+  teams:["CAO – Community","Gov Relations","HR"],
+  priorities:["Powerful Partnerships","People Advantage"],
+  metric:"Supports quarterly board meetings, public comment and the RRSC/RERC stakeholder councils.",
+  outcomes:["Hearing brief with likely questions","Talking points by audience","Risk and concern notes for review"],
+  knowledge:["Knowledge-Public / Transmission-Projects","Knowledge-Public / Strategic-Plan","Hearing requests sample"],
+  flow:"Strategic Brief Pack Publisher", list:"ExecutiveBriefRequests", statusOk:"Published", statusNo:"Needs Revision",
+  prompt:"Prepare Q&A and talking points for the Claysville community stakeholder session (HRG-001, Nov 15).",
+  response:`Hearing Prep Pack
+- Session objective: Prepare Q&A and talking points
+- Audience profile: Community stakeholders — Claysville, Marshall County AL
+- Top stakeholder questions: 1) Environmental effects? 2) Reliability benefit? 3) Who to contact?
+- Draft talking points: Project supports growing load and reliability; in service Summer 2024
+- Risk/concern notes: Wetlands question open (see COM-001)
+- Notes requiring human verification: All dates before the session`,
+  payload:{RequestId:"HRG-001",Audience:"Community",ApprovalStatus:"New"} },
+
+{ id:"itorch", tier:"B", name:"IT Workflow Orchestrator", short:"IT Orchestrator", icon:"⚙️",
+  tagline:"Classify intake, route owners, enforce approval gates.",
+  purpose:"Classifies intake requests, routes work to the right owner with Planner, triggers governed M365 workflows and records traceable audit metadata.",
+  teams:["IT","Transmission Ops","CAO Support"],
+  priorities:["Operational Excellence","Igniting Innovation"],
+  metric:"Supports Igniting Innovation: adopting new technologies with governance built in.",
+  outcomes:["Category, urgency and owner classification","Structured routing payload for Planner","Approval gate plus audit trail"],
+  knowledge:["Routing rules list","PublicComments list"],
+  flow:"Public Comment Triage Routing", list:"PublicComments", statusOk:"Approved for Response", statusNo:"Revision Required", planner:true,
+  prompt:"Route a new 'process' intake about the comment submission process.",
+  response:`{
+  "intakeId": "INT-004",
+  "category": "process",
+  "urgency": "medium",
+  "recommendedOwner": "it.owner@tva.example",
+  "nextAction": "Create Planner task and route for approval",
+  "approvalRequired": true,
+  "notesRequiringHumanVerification": "Confirm owner group",
+  "sourceLinks": []
+}`,
+  payload:{RuleId:"R-004",Category:"process",Owner:"it.owner"} }
+];
+const PRIOS=[
+ {n:"People Advantage",o:"A work culture that emphasizes safety and encourages creativity",m:["Serious Injury Incident Rate"]},
+ {n:"Operational Excellence",o:"Building on a best-in-class reputation for reliable service and competitively priced power",m:["Load Not Served","Nuclear Online Reliability Loss Factor","Combined Cycle EFOR"]},
+ {n:"Financial Strength",o:"Investing in our future, while keeping energy costs as low as feasible",m:["Retail Rates","Total Spend","Operating Cash Flow"]},
+ {n:"Powerful Partnerships",o:"Strong relationships with customers, communities and stakeholders",m:["New & Retained Jobs","Capital Investments"]},
+ {n:"Igniting Innovation",o:"Leading in developing innovative solutions for TVA and our communities",m:["Project & Initiative Milestones"]}];
+const PCOL=["#7c3aed","#0f6cbd","#16a34a","#f59e0b","#db2777"];
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const el=(t,a={},h="")=>{const e=document.createElement(t);for(const k in a)e.setAttribute(k,a[k]);if(h)e.innerHTML=h;return e;};
+const NS="http://www.w3.org/2000/svg";
+const sv=(t,a={})=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;};
+const esc=s=>s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+
+/* ---------- tabs ---------- */
+const tabs=$("#tabs"), main=$("main");
+const order=["home",...AGENTS.map(a=>a.id)];
+function addTab(id,label,tier){const b=el("button",{"data-v":id,role:"tab"},label+(tier?` <span class="tier">Tier ${tier}</span>`:""));b.addEventListener("click",()=>go(id));tabs.appendChild(b);}
+addTab("home","🏠 Overview");
+AGENTS.forEach(a=>addTab(a.id,a.icon+" "+a.short,a.tier));
+let current=null;
+function go(id){
+  if(!order.includes(id))id="home";
+  $$("section.view").forEach(v=>v.classList.toggle("active",v.id==="view-"+id));
+  $$("#tabs button").forEach(b=>b.classList.toggle("active",b.dataset.v===id));
+  const ab=$(`#tabs button[data-v="${id}"]`); if(ab)ab.scrollIntoView({block:"nearest",inline:"center"});
+  if(current&&SIMS[current])SIMS[current].stop();
+  current=id; history.replaceState(null,"","#"+id); window.scrollTo({top:0,behavior:"smooth"});
+  if(id==="home")runCounters(); else if(SIMS[id])SIMS[id].autostart();
+}
+document.addEventListener("keydown",e=>{if(e.target.tagName==="INPUT")return;const i=order.indexOf(current);
+  if(e.key==="ArrowRight")go(order[Math.min(order.length-1,i+1)]);if(e.key==="ArrowLeft")go(order[Math.max(0,i-1)]);});
+
+/* ---------- home ---------- */
+function runCounters(){$$(".kpi .num").forEach(n=>{const t=parseFloat(n.dataset.count),d=+(n.dataset.dec||0),p=n.dataset.prefix||"",s=n.dataset.suffix||"";const t0=performance.now();
+  (function f(now){const k=Math.min(1,(now-t0)/1400),v=t*(1-Math.pow(1-k,3));n.textContent=p+(d?v.toFixed(d):Math.round(v).toLocaleString())+s;if(k<1)requestAnimationFrame(f);})(t0);});}
+const pg=$("#prios");
+PRIOS.forEach((p,i)=>{const c=el("div",{class:"card prio","data-p":p.n,style:`border-top-color:${PCOL[i]};cursor:pointer`},
+ `<div class="tag">Priority ${i+1}</div><h4>${p.n}</h4><p>${p.o}</p><ul>${p.m.map(x=>"<li>"+x+"</li>").join("")}</ul>`);
+ c.addEventListener("click",()=>{const on=c.classList.toggle("sel");$$(".prio").forEach(o=>{if(o!==c)o.classList.remove("sel");o.style.outline=o.classList.contains("sel")?`2px solid ${PCOL[i]}`:"none";});
+  $$(".agentcard").forEach(a=>{const has=a.dataset.p.split("|").includes(p.n);a.style.opacity=(!on||has)?"1":".3";a.style.outline=on&&has?`2px solid ${PCOL[i]}`:"none";});
+  $("#agentgrid").scrollIntoView({behavior:"smooth",block:"center"});});
+ pg.appendChild(c);});
+const ag=$("#agentgrid");
+AGENTS.forEach(a=>{const c=el("div",{class:"card agentcard","data-p":a.priorities.join("|")},
+ `<div class="ic">${a.icon}</div><div class="t">TIER ${a.tier} · ${a.tier==="A"?"Headline deliverable":"Core extension"}</div><h4>${a.name}</h4><p>${a.tagline}</p><div class="pchips">${a.priorities.map(p=>`<span class="pchip">${p}</span>`).join("")}</div>`);
+ c.addEventListener("click",()=>go(a.id));ag.appendChild(c);});
+// hero grid animation: transmission lines with pulses
+(function(){const g=$("#gridsvg");const pts=[];for(let i=0;i<14;i++)pts.push([60+Math.random()*1080,30+Math.random()*240]);
+ const lines=[];pts.forEach((p,i)=>{pts.forEach((q,j)=>{if(j>i&&Math.hypot(p[0]-q[0],p[1]-q[1])<300)lines.push([p,q]);});});
+ lines.forEach(([p,q])=>g.appendChild(sv("line",{x1:p[0],y1:p[1],x2:q[0],y2:q[1],stroke:"#5fa8ff","stroke-opacity":".35","stroke-width":"1"})));
+ pts.forEach(p=>g.appendChild(sv("circle",{cx:p[0],cy:p[1],r:"3.5",fill:"#38bdf8"})));
+ if(!lines.length)return; const pulses=[];for(let i=0;i<10;i++){const c=sv("circle",{r:"3",fill:"#ffb900"});g.appendChild(c);pulses.push({c,l:lines[Math.floor(Math.random()*lines.length)],t:Math.random(),s:.003+Math.random()*.006});}
+ (function f(){pulses.forEach(p=>{p.t+=p.s;if(p.t>1){p.t=0;p.l=lines[Math.floor(Math.random()*lines.length)];}const [a,b]=p.l;p.c.setAttribute("cx",a[0]+(b[0]-a[0])*p.t);p.c.setAttribute("cy",a[1]+(b[1]-a[1])*p.t);});requestAnimationFrame(f);})();})();
+
+/* ---------- agent views + simulator ---------- */
+const SIMS={};
+function nodesFor(a){
+ return {
+  user:{x:70,y:200,ic:"🙋",t:"Requester",s:"Teams / M365 Copilot"},
+  agent:{x:240,y:200,ic:a.icon,t:"Copilot Studio agent",s:a.short},
+  know:{x:240,y:62,ic:"📚",t:"SharePoint knowledge",s:"Public TVA sources"},
+  draft:{x:410,y:200,ic:"📝",t:"Structured draft",s:"Template / JSON"},
+  flow:{x:580,y:200,ic:"⚡",t:"Power Automate",s:a.flow},
+  list:{x:580,y:62,ic:"🗂️",t:"SharePoint list",s:a.list},
+  planner:{x:580,y:338,ic:"📋",t:"Planner task",s:"Owner assigned"},
+  appr:{x:750,y:200,ic:"✅",t:"Human approval",s:"Approver group"},
+  ok:{x:920,y:110,ic:"📣",t:"Publish to Teams",s:"Status: "+a.statusOk,cls:"okn"},
+  no:{x:920,y:290,ic:"↩️",t:"Return for revision",s:"Status: "+a.statusNo,cls:"non"},
+  audit:{x:1080,y:200,ic:"🧾",t:"Audit trail",s:"Run ID · approver · time"}};
+}
+function stepsFor(a,mode){
+ const p=a.payload, kv=Object.entries(p).map(([k,v])=>k+"="+v).join(", ");
+ const s=[
+  ["user","agent","Request sent to the agent",`> prompt received by ${a.short}`],
+  ["agent","know","Agent retrieves grounded knowledge",`> search: ${a.knowledge[0]}`],
+  ["know","agent","Sources returned. The agent reasons and drafts",`> grounded on ${a.knowledge.length} source(s); missing facts flagged as "Needs human verification"`],
+  ["agent","draft","Draft built in the canonical template","> draft generated"],
+  ["draft","flow","Agent action triggers the flow",`> trigger: ${a.flow}`],
+  ["flow","list",`Row written to ${a.list}`,`> create item: ${kv}`]];
+ if(a.planner)s.push(["list","planner","Planner task created for the owner","> planner: task assigned to "+(p.Owner||"owner")]);
+ s.push([a.planner?"planner":"list","appr","Approval sent to the approver group","> approvals: request sent, waiting for a decision"]);
+ if(mode==="ok")s.push(["appr","ok","Approved. Published to the Teams channel",`> decision=Approve · status=${a.statusOk} · Teams post sent`],["ok","audit","Audit fields saved","> FlowRunId · AgentVersion · Approver · ApprovalDecision · DecisionTimestamp · PublishedArtifactLink"]);
+ else s.push(["appr","no","Rejected. Returned to the requester for revision",`> decision=Reject · status=${a.statusNo} · requester notified`],["no","audit","Audit fields saved (rejection recorded)","> FlowRunId · Approver · ApprovalDecision=Reject · DecisionTimestamp"]);
+ return s;
+}
+const EDGES=a=>[["user","agent"],["agent","know"],["agent","draft"],["draft","flow"],["flow","list"],...(a.planner?[["list","planner"],["planner","appr"]]:[["list","appr"]]),["appr","ok"],["appr","no"],["ok","audit"],["no","audit"]];
+const W=150,H=62;
+function anchor(n,m){/* edge point on box toward m */const dx=m.x-n.x,dy=m.y-n.y;if(Math.abs(dx)*H>Math.abs(dy)*W){const sx=Math.sign(dx)*W/2;return [n.x+sx,n.y+dy*(sx/dx)];}const sy=Math.sign(dy)*H/2;return [n.x+dx*(sy/dy),n.y+sy];}
+
+function buildAgent(a){
+ const v=el("section",{class:"view",id:"view-"+a.id});
+ const i=order.indexOf(a.id);
+ v.innerHTML=`
+ <div class="ahero"><div class="big">${a.icon}</div><div><div class="eyebrow">Tier ${a.tier} · ${a.tier==="A"?"Headline workshop deliverable":"Core extension set"}</div><h2>${a.name}</h2><p>${a.tagline}</p></div>
+  <div class="tierb">Flow: <b>${a.flow}</b><br>List: <b>${a.list}</b></div></div>
+ <div class="cols">
+  <div class="card"><h4>What it does</h4><p>${a.purpose}</p>
+   <ul class="clean">${a.outcomes.map(o=>`<li>${o}</li>`).join("")}</ul>
+   <h4 style="margin-top:14px">Strategic Plan alignment</h4>
+   <div class="pchips">${a.priorities.map(p=>`<span class="pchip p" style="background:${PCOL[PRIOS.findIndex(x=>x.n===p)]};border-color:transparent">${p}</span>`).join("")}</div>
+   <p style="margin-top:8px">${a.metric}</p></div>
+  <div class="card"><h4>Who uses it</h4><div class="pchips">${a.teams.map(t=>`<span class="pchip">${t}</span>`).join("")}</div>
+   <h4 style="margin-top:14px">Knowledge (public sources only)</h4><ul class="clean">${a.knowledge.map(k=>`<li>${k}</li>`).join("")}</ul>
+   <h4 style="margin-top:14px">Guardrails</h4><ul class="clean"><li>Draft only. A person approves before anything goes out.</li><li>Missing facts show "Needs human verification"</li><li>No internal or private data</li></ul></div>
+ </div>
+ <div class="wf">
+  <div class="wfbar"><h4>⚡ Live workflow simulation</h4>
+   <button class="btn" data-act="play">▶ Play</button><button class="btn ghost" data-act="stepb">⏭ Step</button><button class="btn ghost" data-act="reset">↺ Reset</button>
+   <button class="btn ok sel" data-act="mode-ok">Approve path</button><button class="btn no" data-act="mode-no">Reject path</button>
+   <button class="btn ghost" data-act="loop">🔁 Auto-loop: on</button><button class="btn ghost" data-act="speed">Speed 1×</button></div>
+  <div class="progress"><i></i></div>
+  <div class="wfbody">
+   <div class="stage"><svg viewBox="0 0 1160 400" role="img" aria-label="Animated workflow for ${a.name}"></svg></div>
+   <div class="side"><div class="chat"></div><div class="log" aria-live="polite"></div></div>
+  </div>
+  <div class="step"><span class="n">Ready</span><span class="txt">Press Play, or open this tab to start the simulation automatically.</span></div>
+ </div>
+ <div class="cols">
+  <div class="card"><h4>Sample prompt</h4><pre class="tpl">${esc(a.prompt)}</pre></div>
+  <div class="card"><h4>Sample output (canonical template)</h4><pre class="tpl">${esc(a.response)}</pre></div>
+ </div>
+ <div class="navpn"><button class="btn ghost" data-go="${order[i-1]}">← ${i-1===0?"Overview":AGENTS[i-2].short}</button>${i<order.length-1?`<button class="btn ghost" data-go="${order[i+1]}">${AGENTS[i].short} →</button>`:""}</div>`;
+ main.appendChild(v);
+ $$("[data-go]",v).forEach(b=>b.addEventListener("click",()=>go(b.dataset.go)));
+ // draw svg
+ const svg=$("svg",v), N=nodesFor(a);
+ [["Ask",0,130],["Reason + draft",150,370],["Govern + route",495,170],["Decide",665,170],["Outcome",835,325]].forEach(([t,x,w])=>{svg.appendChild(sv("rect",{class:"lane",x:x+5,y:8,width:w,height:384,rx:12}));const tt=sv("text",{class:"lanelbl",x:x+16,y:26});tt.textContent=t;svg.appendChild(tt);});
+ const edges={};
+ EDGES(a).forEach(([f,t])=>{const p=anchor(N[f],N[t]),q=anchor(N[t],N[f]);const l=sv("line",{class:"edge",x1:p[0],y1:p[1],x2:q[0],y2:q[1]});svg.appendChild(l);edges[f+">"+t]=edges[t+">"+f]=l;});
+ if(!a.planner)delete N.planner;
+ const nodeEl={};
+ Object.entries(N).forEach(([k,n])=>{const g=sv("g",{class:"node "+(n.cls||""),transform:`translate(${n.x-W/2},${n.y-H/2})`});
+  g.appendChild(sv("rect",{width:W,height:H,rx:12}));
+  const ic=sv("text",{x:12,y:38,class:"ico"});ic.textContent=n.ic;g.appendChild(ic);
+  const t=sv("text",{x:44,y:27,"font-weight":"600"});t.textContent=n.t;g.appendChild(t);
+  const s=sv("text",{x:44,y:44,class:"nsub"});s.textContent=n.s.length>22?n.s.slice(0,21)+"…":n.s;g.appendChild(s);
+  const tl=sv("title");tl.textContent=n.t+" — "+n.s;g.appendChild(tl);
+  svg.appendChild(g);nodeEl[k]=g;});
+ const tok=sv("circle",{class:"token",r:9,cx:N.user.x,cy:N.user.y,opacity:0});svg.appendChild(tok);
+ // sim state
+ const chat=$(".chat",v),log=$(".log",v),stepN=$(".step .n",v),stepT=$(".step .txt",v),bar=$(".progress i",v);
+ let busy=false,mode="ok",loop=true,speed=1,idx=0,playing=false,timer=null,raf=null,steps=stepsFor(a,mode),gen=0;
+ const btn=k=>$(`[data-act="${k}"]`,v);
+ function clearVis(){Object.values(nodeEl).forEach(g=>g.classList.remove("active","done"));Object.values(edges).forEach(e=>e.classList.remove("on","trail"));chat.innerHTML="";log.innerHTML="";tok.setAttribute("opacity",0);bar.style.width="0";}
+ function reset(){gen++;playing=false;busy=false;clearTimeout(timer);cancelAnimationFrame(raf);idx=0;steps=stepsFor(a,mode);clearVis();stepN.textContent="Ready";stepT.textContent="Press Play to run the workflow.";btn("play").textContent="▶ Play";nodeEl.user.classList.add("active");}
+ function addBub(cls,text,typed,cb){const b=el("div",{class:"bub "+cls});chat.appendChild(b);if(!typed){b.textContent=text;chat.scrollTop=chat.scrollHeight;cb&&cb();return;}
+  b.classList.add("caret");let k=0;const my=gen;const per=Math.max(1,Math.round(text.length/(70/speed)));(function t(){if(my!==gen)return;k=Math.min(text.length,k+per);b.textContent=text.slice(0,k);chat.scrollTop=chat.scrollHeight;if(k<text.length)timer=setTimeout(t,22);else{b.classList.remove("caret");cb&&cb();}})();}
+ function addLog(t){const d=el("div");const ts=new Date().toLocaleTimeString([], {hour:"2-digit",minute:"2-digit",second:"2-digit"});d.textContent=`[${ts}] ${t}`;log.appendChild(d);log.scrollTop=log.scrollHeight;}
+ function move(f,t,cb){const A=N[f],B=N[t],e=edges[f+">"+t];e&&e.classList.add("on");tok.setAttribute("opacity",1);const dur=900/speed,t0=performance.now(),my=gen;
+  (function fr(now){if(my!==gen)return;const k=Math.min(1,(now-t0)/dur),q=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;tok.setAttribute("cx",A.x+(B.x-A.x)*q);tok.setAttribute("cy",A.y+(B.y-A.y)*q);
+   if(k<1)raf=requestAnimationFrame(fr);else{e&&(e.classList.remove("on"),e.classList.add("trail"));nodeEl[f].classList.remove("active");nodeEl[f].classList.add("done");nodeEl[t].classList.add("active");cb&&cb();}})(t0);}
+ function doStep(cb){if(idx>=steps.length){cb&&cb(true);return;}const [f,t,label,lg]=steps[idx];const n=idx+1;stepN.textContent=`Step ${n}/${steps.length}`;stepT.textContent=label;bar.style.width=(n/steps.length*100)+"%";
+  const after=()=>{addLog(lg);idx++;
+   if(f==="know"&&t==="agent"){addBub("a",a.response,true,()=>cb&&cb(false));return;}
+   if(t==="appr")addBub("s","⏳ Waiting for approver…");
+   if(t==="ok")addBub("s","✅ Approved. Posted to the Teams channel");
+   if(t==="no")addBub("s","↩️ Rejected. Returned with comments");
+   if(t==="audit")addBub("s","🧾 Audit fields saved to "+a.list);
+   cb&&cb(false);};
+  if(idx===0){addBub("u",a.prompt,true,()=>move(f,t,after));}else move(f,t,after);}
+ function run(){if(!playing)return;doStep(end=>{if(!playing)return;if(end||idx>=steps.length){if(loop){timer=setTimeout(()=>{if(!playing)return;const keep=true;gen++;idx=0;steps=stepsFor(a,mode);clearVis();nodeEl.user.classList.add("active");playing=keep;run();},2600/speed);}else{playing=false;btn("play").textContent="▶ Replay";}return;}timer=setTimeout(run,350/speed);});}
+ function play(){if(playing){playing=false;btn("play").textContent="▶ Resume";return;}if(idx>=steps.length)reset();playing=true;btn("play").textContent="⏸ Pause";run();}
+ btn("play").addEventListener("click",play);
+ btn("stepb").addEventListener("click",()=>{if(playing){playing=false;btn("play").textContent="▶ Resume";return;}if(busy)return;if(idx>=steps.length)reset();busy=true;doStep(()=>{busy=false;});});
+ btn("reset").addEventListener("click",reset);
+ btn("mode-ok").addEventListener("click",()=>{mode="ok";btn("mode-ok").classList.add("sel");btn("mode-no").classList.remove("sel");const was=playing;reset();if(was)play();});
+ btn("mode-no").addEventListener("click",()=>{mode="no";btn("mode-no").classList.add("sel");btn("mode-ok").classList.remove("sel");const was=playing;reset();if(was)play();});
+ btn("loop").addEventListener("click",()=>{loop=!loop;btn("loop").textContent="🔁 Auto-loop: "+(loop?"on":"off");});
+ btn("speed").addEventListener("click",()=>{speed=speed===1?2:speed===2?0.5:1;btn("speed").textContent="Speed "+speed+"×";});
+ reset();
+ SIMS[a.id]={stop(){playing=false;gen++;clearTimeout(timer);cancelAnimationFrame(raf);btn("play").textContent="▶ Resume";},autostart(){if(!playing){reset();play();}}};
+}
+AGENTS.forEach(buildAgent);
+go((location.hash||"#home").slice(1));
+</script></body></html>

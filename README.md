@@ -22,10 +22,17 @@ It supports a hands-on workshop where TVA teams build Copilot Studio agents and 
 
 ## Start here
 
-1. [00 - Workshop fill-in template](docs/00-workshop-fill-in-template.md)
-2. [01 - Workshop implementation plan](docs/01-workshop-implementation-plan.md)
-3. [02 - Data sources and M365 information architecture](docs/02-data-sources-and-m365-information-architecture.md)
-4. [11 - Demo runbook and acceptance checklist](docs/11-demo-runbook-and-acceptance-checklist.md)
+1. Facilitators first: [Pre-class facilitator checklist (Excel)](docs/facilitator/pre-class-facilitator-checklist.xlsx)
+2. [00 - Workshop fill-in template](docs/00-workshop-fill-in-template.md)
+3. [01 - Workshop implementation plan](docs/01-workshop-implementation-plan.md)
+4. [02 - Data sources and M365 information architecture](docs/02-data-sources-and-m365-information-architecture.md)
+5. [11 - Demo runbook and acceptance checklist](docs/11-demo-runbook-and-acceptance-checklist.md)
+
+## Presenter & facilitator assets
+
+1. [Interactive presenter package](presenter/index.html)
+2. [Pre-class facilitator checklist](docs/facilitator/pre-class-facilitator-checklist.xlsx)
+3. [SharePoint list import kit](docs/sharepoint-import-kit/sharepoint-list-import-kit.xlsx)
 
 ## Tier A: Headline workshop agents (deliverables)
 

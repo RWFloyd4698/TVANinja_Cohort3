@@ -17,6 +17,7 @@
 3. Create folders exactly as listed below.
 4. Upload public source files/pages into the matching folders.
 5. Create the four SharePoint lists with exact column names.
+   - Fastest path: import the prepared workbook at `docs/sharepoint-import-kit/sharepoint-list-import-kit.xlsx`.
 6. Validate at least 5 transmission project rows exist in `{{TVA_TRANSMISSION_LIST_NAME}}`.
 7. Save one test file in `{{TVA_ONEDRIVE_WORKSHOP_FOLDER}}` to confirm OneDrive permissions.
 

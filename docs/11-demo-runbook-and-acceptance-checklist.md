@@ -12,6 +12,8 @@
    Process a sample public comment through approval.
 5. **Q&A + expansion scenarios (8 min)**  
    Discuss nuclear, generation, IT, and CAO adaptation patterns.
+6. **Presenter package support**  
+   Use [presenter/index.html](../presenter/index.html) for tabbed walkthrough and workflow simulation visuals.
 
 ## Hands-on workshop mode (participant-led)
 
@@ -32,6 +34,8 @@
   - `{{TVA_TRANSMISSION_DRAFTS_LIST_NAME}}`
   - `{{TVA_PUBLICCOMMENTS_LIST_NAME}}`
   - `{{TVA_BRIEFREQUESTS_LIST_NAME}}`
+- [ ] Use the [facilitator checklist workbook](facilitator/pre-class-facilitator-checklist.xlsx) as the authoritative pre-class tracker.
+- [ ] Use the [SharePoint list import kit](sharepoint-import-kit/sharepoint-list-import-kit.xlsx) to seed list rows and validate schema mapping.
 - [ ] Copilot Studio environment access validated: `{{TVA_COPILOT_STUDIO_ENVIRONMENT}}`
 - [ ] Approver group configured: `{{TVA_APPROVER_GROUP_EMAIL}}`
 - [ ] Teams channel ready: `{{TVA_TEAMS_WORKSHOP_CHANNEL}}`
