@@ -1,5 +1,8 @@
 # TVA Ninja Cohort 3 - Agentic Workflow Workshop
 
+> **▶ View the presenter package:** https://rwfloyd4698.github.io/TVANinja_Cohort3/presenter/  
+> Clicking `presenter/index.html` in GitHub shows code, not the page. Use the link above, or download the file and open it in Edge or Chrome. It runs fully offline.
+
 This repo is the **customer-facing landing page and build kit** for TVA Cohort 3.  
 It supports a hands-on workshop where TVA teams build Copilot Studio agents and Power Automate workflows in their own M365 environment.
 

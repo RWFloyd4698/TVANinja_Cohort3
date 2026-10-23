@@ -1,5 +1,8 @@
 # Demo runbook and acceptance checklist
 
+> **▶ View the presenter package:** https://rwfloyd4698.github.io/TVANinja_Cohort3/presenter/  
+> Clicking `presenter/index.html` in GitHub shows code, not the page. Use the link above, or download the file and open it in Edge or Chrome. It runs fully offline.
+
 ## 45-minute demo sequence
 
 1. **Context (5 min)**  
