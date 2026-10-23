@@ -17,6 +17,7 @@ Customer-facing Copilot Studio + Power Automate workshop package for TVA Cohort 
 - [10 - Power Automate implementation playbooks](docs/10-power-automate-implementation-playbooks.md)
 - [11 - Demo runbook and acceptance checklist](docs/11-demo-runbook-and-acceptance-checklist.md)
 - [12 - Cohort work-area scenario mapping](docs/12-cohort-work-area-scenario-mapping.md)
+- [13 - Agent portfolio roadmap](docs/13-agent-portfolio-roadmap.md)
 - [Cowork handoff package](docs/cowork-handoff/README.md)
 
 ## Agent folders (canonical build packs)
@@ -24,3 +25,13 @@ Customer-facing Copilot Studio + Power Automate workshop package for TVA Cohort 
 - `docs/agents/transmission-planning-navigator/`
 - `docs/agents/strategic-alignment-briefing-agent/`
 - `docs/agents/transmission-comment-triage-agent/`
+- `docs/agents/transmission-siting-explainer/`
+- `docs/agents/public-comment-response-coach/`
+- `docs/agents/reliability-affordability-tradeoff/`
+- `docs/agents/community-gov-hearing-prep/`
+- `docs/agents/it-workflow-orchestrator/`
+- `docs/agents/generation-transmission-dependency-agent/`
+- `docs/agents/nuclear-grid-narrative-agent/`
+- `docs/agents/powerhouse-story-to-use-case-agent/`
+- `docs/agents/strategic-priority-mapper-agent/`
+- `docs/agents/workshop-capstone-builder-agent/`

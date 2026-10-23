@@ -1,0 +1,3 @@
+ScenarioId,ProjectName,Audience,ReliabilityGoal,AffordabilityConstraint,MessageObjective
+TRD-001,Claysville,Finance,Reduce outage exposure,Preserve cost discipline,Executive prep
+TRD-002,Jones Chapel,Operations,Increase network resilience,Maintain phased spending,Steering committee prep

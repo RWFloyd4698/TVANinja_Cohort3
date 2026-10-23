@@ -13,6 +13,16 @@ This folder is the handoff entry point for Cowork builders creating additional w
 - `../agents/transmission-planning-navigator/`
 - `../agents/strategic-alignment-briefing-agent/`
 - `../agents/transmission-comment-triage-agent/`
+- `../agents/transmission-siting-explainer/`
+- `../agents/public-comment-response-coach/`
+- `../agents/reliability-affordability-tradeoff/`
+- `../agents/community-gov-hearing-prep/`
+- `../agents/it-workflow-orchestrator/`
+- `../agents/generation-transmission-dependency-agent/`
+- `../agents/nuclear-grid-narrative-agent/`
+- `../agents/powerhouse-story-to-use-case-agent/`
+- `../agents/strategic-priority-mapper-agent/`
+- `../agents/workshop-capstone-builder-agent/`
 
 Each agent folder now includes:
 

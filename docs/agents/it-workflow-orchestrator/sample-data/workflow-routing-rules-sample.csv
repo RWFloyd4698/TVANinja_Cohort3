@@ -1,0 +1,5 @@
+RuleId,Category,Urgency,DefaultOwner,ApprovalRequired
+R-001,environmental,medium,cao.owner@tva.example,TRUE
+R-002,timeline,low,transmission.owner@tva.example,TRUE
+R-003,property,high,govrel.owner@tva.example,TRUE
+R-004,process,medium,it.owner@tva.example,TRUE
