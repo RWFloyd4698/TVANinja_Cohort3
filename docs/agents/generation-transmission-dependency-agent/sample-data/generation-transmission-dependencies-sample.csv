@@ -1,0 +1,3 @@
+DependencyId,GenerationWorkstream,TransmissionProject,DependencySummary,Owner,SourceUrl,NeedsHumanVerification
+DEP-001,Dam modernization planning,Claysville,"Sequence outage window planning with line commissioning communications",transmission.owner@tva.example,https://www.tva.com/the-powerhouse,TRUE
+DEP-002,Generation maintenance scheduling,Jones Chapel,"Align maintenance outage planning with winter 2026-2027 construction window",transmission.owner@tva.example,https://www.tva.com/energy/transmission/transmission-projects/jones-chapel-alabama,TRUE

@@ -1,0 +1,3 @@
+ScenarioId,StoryTopic,UseCasePattern,PrimaryTeam,ApprovalFlow,SourceUrl,NeedsHumanVerification
+PUC-001,Reliability improvements,Public briefing + approval workflow,Transmission,{{FLOW_STRATEGIC_BRIEF_PUBLISH_NAME}},https://www.tva.com/the-powerhouse,TRUE
+PUC-002,Community partnership,Stakeholder Q&A response routing,CAO,{{FLOW_PUBLICCOMMENT_TRIAGE_NAME}},https://www.tva.com/the-powerhouse,TRUE

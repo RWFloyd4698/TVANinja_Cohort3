@@ -5,7 +5,9 @@
   "urgency": "medium",
   "needsHumanReview": true,
   "recommendedOwner": "CAO Community Engagement",
+  "nextStep": "Route to owner and collect project-specific environmental update before sending response.",
   "draftResponse": "Thank you for your question. TVA project materials indicate environmental review is part of the transmission siting process, and specific impacts are reviewed and communicated through project channels. We will route this to the project team for confirmed details.",
+  "notesRequiringHumanVerification": "Project-specific wetland impact details are not included in current source materials.",
   "sourceLinks": [
     "https://www.tva.com/energy/transmission/transmission-projects/claysville-alabama"
   ]

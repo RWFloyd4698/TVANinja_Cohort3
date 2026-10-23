@@ -27,7 +27,13 @@ It supports a hands-on workshop where TVA teams build Copilot Studio agents and 
 3. [02 - Data sources and M365 information architecture](docs/02-data-sources-and-m365-information-architecture.md)
 4. [11 - Demo runbook and acceptance checklist](docs/11-demo-runbook-and-acceptance-checklist.md)
 
-## Core agent build packs (full step-by-step)
+## Tier A: Headline workshop agents (deliverables)
+
+- `docs/agents/transmission-planning-navigator/`
+- `docs/agents/strategic-alignment-briefing-agent/`
+- `docs/agents/transmission-comment-triage-agent/`
+
+## Tier B: Core extension set (full step-by-step)
 
 - `docs/agents/transmission-siting-explainer/`
 - `docs/agents/public-comment-response-coach/`
@@ -35,11 +41,8 @@ It supports a hands-on workshop where TVA teams build Copilot Studio agents and 
 - `docs/agents/community-gov-hearing-prep/`
 - `docs/agents/it-workflow-orchestrator/`
 
-## Existing and advanced agent packs
+## Tier C: Advanced track
 
-- `docs/agents/transmission-planning-navigator/`
-- `docs/agents/strategic-alignment-briefing-agent/`
-- `docs/agents/transmission-comment-triage-agent/`
 - `docs/agents/generation-transmission-dependency-agent/`
 - `docs/agents/nuclear-grid-narrative-agent/`
 - `docs/agents/powerhouse-story-to-use-case-agent/`

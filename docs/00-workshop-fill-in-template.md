@@ -26,6 +26,12 @@ Use this sheet before the hands-on build. Replace all placeholders in other docs
 - `{{TVA_DEFAULT_OWNER_CAO}}`:
 - `{{TVA_DEFAULT_OWNER_IT}}`:
 
+## Power Automate flows
+
+- `{{FLOW_TRANSMISSION_UPDATE_APPROVAL_NAME}}` (suggested: `TVA-Transmission-Update-Approval`)
+- `{{FLOW_PUBLICCOMMENT_TRIAGE_NAME}}` (suggested: `TVA-Public-Comment-Triage`)
+- `{{FLOW_STRATEGIC_BRIEF_PUBLISH_NAME}}` (suggested: `TVA-Strategic-Brief-Publish`)
+
 ## Workshop settings
 
 - `{{WORKSHOP_DATE}}`:

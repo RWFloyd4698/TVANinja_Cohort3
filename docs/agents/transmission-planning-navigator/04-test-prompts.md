@@ -15,4 +15,8 @@
 
 - No hallucinated dates.
 - Clear source-grounded response.
-- Explicit "Needs human verification" for gaps.
+- Uses the canonical output template fields:
+  - `State/County`
+  - `Current stage`
+  - `Key schedule milestones`
+  - `Notes requiring human verification`

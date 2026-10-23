@@ -1,0 +1,3 @@
+CapstoneId,CohortTeam,PrimaryAgent,PrimaryFlow,Owner,ArtifactPath,NeedsHumanVerification
+CAP-001,Transmission,Transmission Planning Navigator,{{FLOW_TRANSMISSION_UPDATE_APPROVAL_NAME}},transmission.owner@tva.example,{{TVA_KNOWLEDGE_LIBRARY_NAME}}/briefs/transmission-capstone.md,TRUE
+CAP-002,CAO,Transmission Comment Triage Agent,{{FLOW_PUBLICCOMMENT_TRIAGE_NAME}},cao.owner@tva.example,{{TVA_KNOWLEDGE_LIBRARY_NAME}}/briefs/cao-capstone.md,TRUE

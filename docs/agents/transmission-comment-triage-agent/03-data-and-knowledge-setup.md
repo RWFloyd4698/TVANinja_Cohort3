@@ -28,7 +28,9 @@ List: `{{TVA_PUBLICCOMMENTS_LIST_NAME}}`
   "urgency": "low|medium|high",
   "needsHumanReview": true,
   "recommendedOwner": "string",
+  "nextStep": "string",
   "draftResponse": "string",
+  "notesRequiringHumanVerification": "string",
   "sourceLinks": ["string"]
 }
 ```

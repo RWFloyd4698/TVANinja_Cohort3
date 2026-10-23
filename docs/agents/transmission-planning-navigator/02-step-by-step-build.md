@@ -34,13 +34,13 @@ If any fact is missing, state "Needs human verification."
 ```text
 Transmission Project Snapshot
 - Project:
-- Geography:
-- Current lifecycle stage:
+- State/County:
+- Current stage:
 - Reliability/load rationale:
 - Public comment status:
-- Milestones:
+- Key schedule milestones:
 - Source links:
-- Needs human verification:
+- Notes requiring human verification:
 ```
 
 9. Save and publish.

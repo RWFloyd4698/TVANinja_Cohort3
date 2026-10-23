@@ -17,9 +17,24 @@
 
 1. Facilitator explains objective and constraints (5 min).
 2. Participants complete `00-workshop-fill-in-template.md` (5 min).
-3. Participants build one agent from scratch in pairs (15 min).
-4. Participants connect one flow with approval (15 min).
-5. Debrief and share working builds by work area (5 min).
+3. Participants build one agent from scratch in pairs (25-35 min).
+4. Participants connect one flow with approval (20-30 min) or connect a pre-staged flow.
+5. Debrief and share working builds by work area (10 min).
+
+**Assumption:** if workshop time is capped at 45-50 minutes, facilitators pre-stage the flow and participants perform only trigger/action wiring and test runs.
+
+## Pre-class setup (facilitator)
+
+- [ ] SharePoint site exists: `{{TVA_SHAREPOINT_SITE_URL}}`
+- [ ] Library folders created in `{{TVA_KNOWLEDGE_LIBRARY_NAME}}`
+- [ ] Lists created and sample rows loaded:
+  - `{{TVA_TRANSMISSION_LIST_NAME}}`
+  - `{{TVA_PUBLICCOMMENTS_LIST_NAME}}`
+  - `{{TVA_BRIEFREQUESTS_LIST_NAME}}`
+- [ ] Copilot Studio environment access validated: `{{TVA_COPILOT_STUDIO_ENVIRONMENT}}`
+- [ ] Approver group configured: `{{TVA_APPROVER_GROUP_EMAIL}}`
+- [ ] Teams channel ready: `{{TVA_TEAMS_WORKSHOP_CHANNEL}}`
+- [ ] Power Automate connections pre-created for SharePoint, Teams, Planner, Outlook, Approvals, Copilot Studio actions
 
 ## Acceptance checklist
 

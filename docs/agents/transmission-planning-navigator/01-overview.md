@@ -28,3 +28,17 @@ Customer-facing agent that explains TVA transmission projects, lifecycle stages,
 - Public data only.
 - No internal/private content.
 - If source data is missing, return "Needs human verification."
+
+## Output template (canonical)
+
+```text
+Transmission Project Snapshot
+- Project:
+- State/County:
+- Current stage:
+- Reliability/load rationale:
+- Public comment status:
+- Key schedule milestones:
+- Source links:
+- Notes requiring human verification:
+```

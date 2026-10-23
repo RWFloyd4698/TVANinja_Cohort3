@@ -22,3 +22,19 @@ Customer-facing draft assistant that classifies transmission-related comments an
 - Draft only; never auto-send.
 - Public source grounding only.
 - Human approval required for all outgoing responses.
+- If data is missing, state "Needs human verification."
+
+## Output template (canonical)
+
+```json
+{
+  "category": "",
+  "urgency": "",
+  "recommendedOwner": "",
+  "nextStep": "",
+  "draftResponse": "",
+  "needsHumanReview": true,
+  "notesRequiringHumanVerification": "",
+  "sourceLinks": []
+}
+```

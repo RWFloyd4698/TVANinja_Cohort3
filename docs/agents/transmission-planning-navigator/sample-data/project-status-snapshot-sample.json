@@ -1,16 +1,16 @@
 {
   "projectName": "Claysville",
-  "geography": "Marshall County, Alabama",
-  "stage": "Construction",
+  "stateCounty": "Alabama / Marshall County",
+  "currentStage": "Needs human verification",
   "reliabilityRationale": "Support growing load and improve reliability.",
   "publicCommentStatus": "Closed",
-  "milestones": [
+  "keyScheduleMilestones": [
     "Virtual information session ended April 11, 2022",
     "Construction scheduled Spring 2024",
-    "In service target Summer 2024"
+    "Project in service listed as Summer 2024 on source page schedule table"
   ],
   "sourceLinks": [
     "https://www.tva.com/energy/transmission/transmission-projects/claysville-alabama"
   ],
-  "needsHumanVerification": false
+  "notesRequiringHumanVerification": "Current stage on source page should be confirmed before external use because listed dates are historical."
 }

@@ -30,3 +30,18 @@ Customer-facing agent that turns TVA public strategy and project information int
 - Public TVA sources only.
 - No internal/private content.
 - No fabricated metrics or dates.
+- If data is missing, state "Needs human verification."
+
+## Output template (canonical)
+
+```text
+Strategic Alignment Brief
+- Audience:
+- Topic:
+- Strategic priority mapping:
+- Key supporting evidence:
+- Risks and constraints:
+- Recommended next action:
+- Source links:
+- Needs human verification:
+```

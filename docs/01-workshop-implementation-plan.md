@@ -51,3 +51,9 @@ Use values from `00-workshop-fill-in-template.md`:
 - Transmission Comment Triage Agent
 - Three supporting Power Automate flows
 - Demo runbook and acceptance checklist
+
+## Portfolio alignment
+
+- **Tier A (headline workshop agents):** the three deliverables above
+- **Tier B (core extension set):** five full extension packs for role-based expansion
+- **Tier C (advanced track):** five advanced packs for post-workshop iteration
