@@ -13,9 +13,11 @@ Use this sheet before the hands-on build. Replace all placeholders in other docs
 - `{{TVA_SHAREPOINT_SITE_URL}}`:
 - `{{TVA_KNOWLEDGE_LIBRARY_NAME}}` (default: `Knowledge-Public`):
 - `{{TVA_TRANSMISSION_LIST_NAME}}` (default: `TransmissionProjects`):
+- `{{TVA_TRANSMISSION_DRAFTS_LIST_NAME}}` (default: `TransmissionUpdateDrafts`):
 - `{{TVA_PUBLICCOMMENTS_LIST_NAME}}` (default: `PublicComments`):
 - `{{TVA_BRIEFREQUESTS_LIST_NAME}}` (default: `ExecutiveBriefRequests`):
 - `{{TVA_ONEDRIVE_WORKSHOP_FOLDER}}`:
+- `{{TVA_SERVICE_AREA_REGION}}`:
 
 ## Teams and approvals
 

@@ -16,6 +16,7 @@
 - Strategic priorities and objective statements present.
 - At least 3 source citations available for each sample briefing output.
 - One example each for Finance, Nuclear/Generation, and CAO.
+- `{{TVA_BRIEFREQUESTS_LIST_NAME}}` includes `RequestId`, `RequestedBy`, `Audience`, `DueDate`, `PriorityTheme`, `ProjectsIncluded`, `DraftBrief`, `ApprovalStatus`, `PublishedLink`, and audit fields.
 
 ## Quality checks
 

@@ -25,5 +25,5 @@
 ## Quality checks
 
 1. Every row has a source URL.
-2. Stage is one of: Planning, Siting, Environmental, Survey, Realty/ROW, Construction, In Service.
+2. Stage is one of: Planning, Siting, Environmental Review, Survey/Realty, Construction, In Service, Needs human verification.
 3. At least one row is flagged as public comment open/active.

@@ -8,16 +8,24 @@ This folder is the handoff entry point for Cowork builders creating additional w
 2. `../01-workshop-implementation-plan.md`
 3. `../02-data-sources-and-m365-information-architecture.md`
 
-## Agent build packs
+## Agent build packs by tier
+
+### Tier A: Headline workshop agents
 
 - `../agents/transmission-planning-navigator/`
 - `../agents/strategic-alignment-briefing-agent/`
 - `../agents/transmission-comment-triage-agent/`
+
+### Tier B: Core extension set
+
 - `../agents/transmission-siting-explainer/`
 - `../agents/public-comment-response-coach/`
 - `../agents/reliability-affordability-tradeoff/`
 - `../agents/community-gov-hearing-prep/`
 - `../agents/it-workflow-orchestrator/`
+
+### Tier C: Full packs, advanced track
+
 - `../agents/generation-transmission-dependency-agent/`
 - `../agents/nuclear-grid-narrative-agent/`
 - `../agents/powerhouse-story-to-use-case-agent/`

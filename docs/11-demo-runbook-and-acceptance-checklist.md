@@ -29,6 +29,7 @@
 - [ ] Library folders created in `{{TVA_KNOWLEDGE_LIBRARY_NAME}}`
 - [ ] Lists created and sample rows loaded:
   - `{{TVA_TRANSMISSION_LIST_NAME}}`
+  - `{{TVA_TRANSMISSION_DRAFTS_LIST_NAME}}`
   - `{{TVA_PUBLICCOMMENTS_LIST_NAME}}`
   - `{{TVA_BRIEFREQUESTS_LIST_NAME}}`
 - [ ] Copilot Studio environment access validated: `{{TVA_COPILOT_STUDIO_ENVIRONMENT}}`

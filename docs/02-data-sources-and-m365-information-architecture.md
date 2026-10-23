@@ -16,7 +16,7 @@
 2. Create library `{{TVA_KNOWLEDGE_LIBRARY_NAME}}`.
 3. Create folders exactly as listed below.
 4. Upload public source files/pages into the matching folders.
-5. Create the three SharePoint lists with exact column names.
+5. Create the four SharePoint lists with exact column names.
 6. Validate at least 5 transmission project rows exist in `{{TVA_TRANSMISSION_LIST_NAME}}`.
 7. Save one test file in `{{TVA_ONEDRIVE_WORKSHOP_FOLDER}}` to confirm OneDrive permissions.
 
@@ -27,14 +27,25 @@ Create site `{{TVA_SHAREPOINT_SITE_URL}}` with:
 - **Document Library:** `{{TVA_KNOWLEDGE_LIBRARY_NAME}}`
   - `Strategic-Plan/`
   - `Transmission-Projects/`
+  - `Generation/`
   - `Powerhouse-Stories/`
   - `Reference-Policies/`
+- **Controlled stage values (use only these in all Stage columns):**
+  - `Planning`
+  - `Siting`
+  - `Environmental Review`
+  - `Survey/Realty`
+  - `Construction`
+  - `In Service`
+  - `Needs human verification`
 - **List:** `{{TVA_TRANSMISSION_LIST_NAME}}`
   - Columns: `ProjectName`, `State`, `County`, `Stage`, `ScheduleText`, `PublicCommentStatus`, `SourceUrl`, `LastValidatedOn`
+- **List:** `{{TVA_TRANSMISSION_DRAFTS_LIST_NAME}}`
+  - Columns: `DraftId`, `SubmittedOn`, `ProjectName`, `State`, `County`, `Stage`, `ScheduleText`, `PublicCommentStatus`, `DraftSummary`, `SourceUrl`, `Status`, `FlowRunId`, `AgentVersion`, `Approver`, `ApprovalDecision`, `DecisionTimestamp`, `PublishedArtifactLink`
 - **List:** `{{TVA_PUBLICCOMMENTS_LIST_NAME}}`
-  - Columns: `CommentId`, `SubmittedOn`, `ProjectName`, `Category`, `Urgency`, `NeedsHumanReview`, `DraftResponse`, `Owner`, `Status`
+  - Columns: `CommentId`, `SubmittedOn`, `ProjectName`, `CommentText`, `Category`, `Urgency`, `NeedsHumanReview`, `DraftResponse`, `Owner`, `Status`, `SourceUrl`, `FlowRunId`, `AgentVersion`, `Approver`, `ApprovalDecision`, `DecisionTimestamp`, `PublishedArtifactLink`
 - **List:** `{{TVA_BRIEFREQUESTS_LIST_NAME}}`
-  - Columns: `RequestId`, `RequestedBy`, `PriorityTheme`, `ProjectsIncluded`, `DraftBrief`, `ApprovalStatus`, `PublishedLink`
+  - Columns: `RequestId`, `RequestedBy`, `Audience`, `DueDate`, `PriorityTheme`, `ProjectsIncluded`, `DraftBrief`, `ApprovalStatus`, `PublishedLink`, `FlowRunId`, `AgentVersion`, `Approver`, `ApprovalDecision`, `DecisionTimestamp`, `PublishedArtifactLink`
 
 ## OneDrive structure (optional personal working area)
 

@@ -31,21 +31,23 @@ Agent reasons and drafts. Flow executes and governs.
 ### Pattern A: Draft and approval
 
 1. Agent drafts structured output.
-2. Flow writes draft to SharePoint list.
+2. Flow writes draft to `{{TVA_TRANSMISSION_DRAFTS_LIST_NAME}}`.
 3. Flow creates approval in Teams/Outlook.
 4. On approval, publish/send; on reject, return for revision.
+5. Flow persists audit fields: `FlowRunId`, `AgentVersion`, `Approver`, `ApprovalDecision`, `DecisionTimestamp`, `PublishedArtifactLink`.
 
 ### Pattern B: Triage and assignment
 
 1. Agent classifies incoming item.
-2. Flow creates Planner task and sets owner.
-3. Flow posts to Teams operations channel with SLA metadata.
+2. Flow updates `{{TVA_PUBLICCOMMENTS_LIST_NAME}}`, creates Planner task, and sets owner.
+3. Flow runs approval before any outbound response and writes audit fields to the list.
 
 ### Pattern C: Executive briefing pack
 
 1. Agent composes role-based briefing.
-2. Flow stores document in SharePoint library.
-3. Flow posts summary and link to Teams.
+2. Flow stores document in SharePoint library and updates `{{TVA_BRIEFREQUESTS_LIST_NAME}}`.
+3. Flow sets `ApprovalStatus` (`Published` or `Needs Revision`) and posts approved summary/link to Teams.
+4. Flow persists audit fields: `FlowRunId`, `AgentVersion`, `Approver`, `ApprovalDecision`, `DecisionTimestamp`, `PublishedArtifactLink`.
 
 ## Security and governance controls
 

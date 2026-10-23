@@ -21,3 +21,10 @@ Route triaged comments into owner workflow with approval gating.
 7. On reject:
    - Mark status `Revision Required`
    - Notify assigned owner.
+8. Persist audit fields in `{{TVA_PUBLICCOMMENTS_LIST_NAME}}`:
+   - `FlowRunId`
+   - `AgentVersion`
+   - `Approver`
+   - `ApprovalDecision`
+   - `DecisionTimestamp`
+   - `PublishedArtifactLink`

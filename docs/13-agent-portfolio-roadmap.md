@@ -18,7 +18,7 @@ These are the primary workshop deliverables listed in the implementation plan.
 
 These are full build packs (overview, step-by-step build, data setup, tests, flow integration, sample data).
 
-## Tier C: Advanced track (lightweight packs)
+## Tier C: Full packs, advanced track
 
 1. Generation-Transmission Dependency Agent
 2. Nuclear & Grid Narrative Agent
@@ -26,4 +26,4 @@ These are full build packs (overview, step-by-step build, data setup, tests, flo
 4. Strategic Priority Mapper Agent
 5. Workshop Capstone Builder Agent
 
-These are advanced packs now and are expanded to full packs for post-workshop iteration.
+These are full packs intended for advanced-track and post-workshop iteration.

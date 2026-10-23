@@ -17,6 +17,12 @@ List: `{{TVA_PUBLICCOMMENTS_LIST_NAME}}`
 - `Owner`
 - `Status`
 - `SourceUrl`
+- `FlowRunId`
+- `AgentVersion`
+- `Approver`
+- `ApprovalDecision`
+- `DecisionTimestamp`
+- `PublishedArtifactLink`
 
 ## JSON output contract
 

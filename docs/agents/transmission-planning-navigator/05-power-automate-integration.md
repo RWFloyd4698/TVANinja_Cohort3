@@ -11,14 +11,21 @@ Take the agent project snapshot and route it through approval before distributio
 ## Steps
 
 1. Trigger from Copilot action.
-2. Create SharePoint item in `{{TVA_TRANSMISSION_LIST_NAME}}`.
+2. Create SharePoint draft item in `{{TVA_TRANSMISSION_DRAFTS_LIST_NAME}}` with `Status = Draft`.
 3. Start approval to `{{TVA_APPROVER_GROUP_EMAIL}}`.
 4. If approved:
    - Post to `{{TVA_TEAMS_WORKSHOP_CHANNEL}}`
-   - Mark status `Published`
+   - Mark `Status = Published`
 5. If rejected:
-   - Mark status `Needs Revision`
+   - Mark `Status = Needs Revision`
    - Notify requestor.
+6. Persist audit fields on the same draft item:
+   - `FlowRunId`
+   - `AgentVersion`
+   - `Approver`
+   - `ApprovalDecision`
+   - `DecisionTimestamp`
+   - `PublishedArtifactLink`
 
 ## Required payload fields
 
