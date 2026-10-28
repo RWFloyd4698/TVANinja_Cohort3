@@ -8,18 +8,20 @@
    `https://tva-azr-eastus-cdn-ep-tvawcm-prd.azureedge.net/cdn-tvawcma/docs/default-source/about-tva/guidelines-reports/tva-strategic-plan-%28fy26-fy30%29.pdf?sfvrsn=871adc06_1`
 4. TVA transmission index:  
    `https://www.tva.com/energy/transmission/transmission-system-projects`
-5. TVA transmission project detail pages by state/project slug.
+5. TVA transmission project detail pages by project slug.
+6. TVA 2026 IRP executive summary page/PDF URL: `{{TVA_IRP_2026_EXEC_SUMMARY_URL}}` **[Provided by TVA]**
 
 ## Step-by-step setup (participants)
 
 1. Open SharePoint site `{{TVA_SHAREPOINT_SITE_URL}}`.
 2. Create library `{{TVA_KNOWLEDGE_LIBRARY_NAME}}`.
 3. Create folders exactly as listed below.
-4. Upload public source files/pages into the matching folders.
-5. Create the four SharePoint lists with exact column names.
-   - Fastest path: import the prepared workbook at `docs/sharepoint-import-kit/sharepoint-list-import-kit.xlsx`.
+4. For each listed source page, open in Edge, select **Print** > **Save as PDF**, then upload the PDF to the mapped folder.
+5. Create the five SharePoint lists with exact column names.
+   - Fastest path: import `docs/sharepoint-import-kit/sharepoint-list-import-kit.xlsx`.
 6. Validate at least 5 transmission project rows exist in `{{TVA_TRANSMISSION_LIST_NAME}}`.
-7. Save one test file in `{{TVA_ONEDRIVE_WORKSHOP_FOLDER}}` to confirm OneDrive permissions.
+7. Load all knowledge at least 2 days before workshop delivery (indexing takes time).
+8. Save one test file in `{{TVA_ONEDRIVE_WORKSHOP_FOLDER}}` to confirm OneDrive permissions.
 
 ## SharePoint structure (required)
 
@@ -47,6 +49,36 @@ Create site `{{TVA_SHAREPOINT_SITE_URL}}` with:
   - Columns: `CommentId`, `SubmittedOn`, `ProjectName`, `CommentText`, `Category`, `Urgency`, `NeedsHumanReview`, `DraftResponse`, `Owner`, `Status`, `SourceUrl`, `FlowRunId`, `AgentVersion`, `Approver`, `ApprovalDecision`, `DecisionTimestamp`, `PublishedArtifactLink`
 - **List:** `{{TVA_BRIEFREQUESTS_LIST_NAME}}`
   - Columns: `RequestId`, `RequestedBy`, `Audience`, `DueDate`, `PriorityTheme`, `ProjectsIncluded`, `DraftBrief`, `ApprovalStatus`, `FlowRunId`, `AgentVersion`, `Approver`, `ApprovalDecision`, `DecisionTimestamp`, `PublishedArtifactLink`
+- **List:** `RoutingRules`
+  - Columns: `RuleId`, `Category`, `Urgency`, `DefaultOwner`, `ApprovalRequired`
+
+## Exact source pages by folder
+
+### `Transmission-Projects/`
+
+1. `https://www.tva.com/energy/transmission/transmission-system-projects`
+2. `https://www.tva.com/energy/transmission/transmission-projects/claysville-alabama`
+3. `https://www.tva.com/energy/transmission/transmission-projects/jones-chapel-alabama`
+4. `https://www.tva.com/energy/transmission/transmission-projects/star-gap--alabama-(fort-payne--dekalb-county)`
+5. `https://www.tva.com/energy/transmission/transmission-projects/crossville--alabama-(dekalb-county)`
+6. `https://www.tva.com/energy/transmission/transmission-projects/florence-alabama`
+
+### `Strategic-Plan/`
+
+1. `https://tva-azr-eastus-cdn-ep-tvawcm-prd.azureedge.net/cdn-tvawcma/docs/default-source/about-tva/guidelines-reports/tva-strategic-plan-%28fy26-fy30%29.pdf?sfvrsn=871adc06_1`
+
+### `Generation/`
+
+1. TVA FY26-FY30 strategic plan PDF, section/table: **Major Management Priorities** (new-generation row/content)
+2. `{{TVA_IRP_2026_EXEC_SUMMARY_URL}}` (2026 IRP Executive Summary) **[Provided by TVA]**
+
+### `Powerhouse-Stories/`
+
+1. `https://www.tva.com/the-powerhouse`
+
+### `Reference-Policies/`
+
+1. Customer-facing response/messaging policy documents: **[Provided by TVA]**
 
 ## OneDrive structure (optional personal working area)
 

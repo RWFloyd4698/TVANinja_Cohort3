@@ -1,22 +1,21 @@
 # Test prompts
 
-## Happy path
+## Happy path (with expected answers)
 
-1. Summarize the Claysville, Alabama transmission project.
-2. Explain TVA transmission lifecycle stages in plain language.
-3. Which projects are open for public comment?
+1. Prompt: `Summarize the Claysville, Alabama transmission project.`  
+   Expected: `Current stage: In Service`; `Public comment status: Closed`.
+2. Prompt: `Summarize Crossville and state whether comments are open.`  
+   Expected: `Current stage: Siting`; `Public comment status: Open`.
+3. Prompt: `Summarize COM context for Star Gap milestones.`  
+   Expected: `Current stage: Survey/Realty`; schedule includes survey/easement milestones.
 
 ## Edge cases
 
-1. Summarize a project not found in knowledge.
-2. Provide schedule for a project with missing milestone dates.
+1. Summarize a project not in knowledge.
+2. Provide schedule details where source text is missing.
 
 ## Expected behavior
 
-- No hallucinated dates.
-- Clear source-grounded response.
-- Uses the canonical output template fields:
-  - `State/County`
-  - `Current stage`
-  - `Key schedule milestones`
-  - `Notes requiring human verification`
+- Uses the canonical output template.
+- Returns source links for each response.
+- Uses "Needs human verification" for unknown values.

@@ -1,36 +1,21 @@
 # Power Automate integration
 
-## Flow name
+## Flow
 
 `{{FLOW_TRANSMISSION_UPDATE_APPROVAL_NAME}}`
 
-## Purpose
+## Agent -> flow tool wiring
 
-Take the agent project snapshot and route it through approval before distribution.
+1. In Copilot Studio tools, create/use flow with trigger **When an agent calls the flow**.
+2. Inputs: `projectName`, `stateCounty`, `currentStage`, `publicCommentStatus`, `scheduleMilestones`, `draftSummary`, `sourceLinks`.
+3. Return outputs: `status`, `draftId`, `publishedArtifactLink`, `flowRunId`.
 
-## Steps
+## Build sequence
 
-1. Trigger from Copilot action.
-2. Create SharePoint draft item in `{{TVA_TRANSMISSION_DRAFTS_LIST_NAME}}` with `Status = Draft`.
-3. Start approval to `{{TVA_APPROVER_GROUP_EMAIL}}`.
-4. If approved:
-   - Post to `{{TVA_TEAMS_WORKSHOP_CHANNEL}}`
-   - Mark `Status = Published`
-5. If rejected:
-   - Mark `Status = Needs Revision`
-   - Notify requestor.
-6. Persist audit fields on the same draft item:
-   - `FlowRunId`
-   - `AgentVersion`
-   - `Approver`
-   - `ApprovalDecision`
-   - `DecisionTimestamp`
-   - `PublishedArtifactLink`
-
-## Required payload fields
-
-- `ProjectName`
-- `Stage`
-- `ScheduleText`
-- `PublicCommentStatus`
-- `SourceUrl`
+1. Create item in `{{TVA_TRANSMISSION_DRAFTS_LIST_NAME}}` with `Status = Draft`.
+2. Set `AgentVersion = Navigator v1.0`.
+3. Start approval assigned to `{{TVA_APPROVER_USERS}}` **[Provided by TVA]**.
+4. Note: group-mailbox approvals can fail in some tenants; use named users (semicolon-separated).
+5. If approved, set `Status = Published` and post approved summary to `{{TVA_TEAMS_WORKSHOP_CHANNEL}}`.
+6. If rejected, set `Status = Needs Revision`.
+7. Persist `FlowRunId`, `AgentVersion`, `Approver`, `ApprovalDecision`, `DecisionTimestamp`, `PublishedArtifactLink`.

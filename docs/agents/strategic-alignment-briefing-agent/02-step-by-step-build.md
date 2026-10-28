@@ -1,46 +1,79 @@
 # Step-by-step build (participant)
 
-## Prerequisites
+## 1. Prerequisites (roles/licenses)
 
-- Copilot Studio access to `{{TVA_COPILOT_STUDIO_ENVIRONMENT}}`
-- SharePoint library `{{TVA_KNOWLEDGE_LIBRARY_NAME}}`
+1. Copilot Studio maker access in `{{TVA_COPILOT_STUDIO_ENVIRONMENT}}`.
+2. Permission to `{{TVA_SHAREPOINT_SITE_URL}}` and `{{TVA_KNOWLEDGE_LIBRARY_NAME}}`.
+3. Power Automate access for flow tool wiring (premium connector availability should be verified in GCC).
+4. Named approvers: `{{TVA_APPROVER_USERS}}` **[Provided by TVA]**.
 
-## Build steps
+## 2. Create agent (name + description)
 
-1. Open Copilot Studio in `{{TVA_COPILOT_STUDIO_ENVIRONMENT}}`.
-2. Create agent named `Strategic Alignment Briefing Agent`.
-3. Description: "Customer-facing briefing agent for TVA strategic alignment."
-4. Add knowledge:
-   - `{{TVA_KNOWLEDGE_LIBRARY_NAME}}/Strategic-Plan`
-   - `{{TVA_KNOWLEDGE_LIBRARY_NAME}}/Transmission-Projects`
-   - `{{TVA_KNOWLEDGE_LIBRARY_NAME}}/Powerhouse-Stories` (optional)
-5. Paste instructions:
+1. Name: `Strategic Alignment Briefing Agent`.
+2. Description: `Customer-facing briefing agent that maps TVA project narratives to strategic priorities.`
 
-```text
-You create customer-facing strategic briefs using TVA public sources.
-Map responses to strategic priorities and practical outcomes.
-Tailor output for the selected audience role.
-Do not invent metrics or timelines.
-If source data is missing, state "Needs human verification."
-```
+## 3. Turn on generative orchestration
 
-6. Create topic: `Build role-based briefing`.
-7. Add trigger phrases:
-   - "Create a finance briefing for this project"
-   - "Generate a CAO stakeholder talking brief"
-   - "Create an operations-aligned strategy brief"
-8. Add output template:
+1. Enable generative orchestration in agent settings.
+2. Save settings.
+
+## 4. Knowledge (SharePoint paths + Authenticate with Microsoft)
+
+1. Add `{{TVA_SHAREPOINT_SITE_URL}}/{{TVA_KNOWLEDGE_LIBRARY_NAME}}/Strategic-Plan`.
+2. Add `{{TVA_SHAREPOINT_SITE_URL}}/{{TVA_KNOWLEDGE_LIBRARY_NAME}}/Transmission-Projects`.
+3. Add `{{TVA_SHAREPOINT_SITE_URL}}/{{TVA_KNOWLEDGE_LIBRARY_NAME}}/Powerhouse-Stories`.
+4. Add `{{TVA_SHAREPOINT_SITE_URL}}/{{TVA_KNOWLEDGE_LIBRARY_NAME}}/Generation`.
+5. When prompted, select **Authenticate with Microsoft**.
+
+## 5. Instructions (paste-ready)
+
+Paste exactly:
 
 ```text
+You are a customer-facing strategic briefing assistant for TVA workshop scenarios.
+
+Guardrails:
+- Use only approved TVA public sources and workshop sample data.
+- Never use internal/private data.
+- Never fabricate metrics, dates, or outcomes.
+- If required data is missing or unclear, state "Needs human verification."
+
+Always respond in this exact format:
 Strategic Alignment Brief
 - Audience:
-- Priority theme:
-- Strategic alignment:
-- Reliability/affordability implications:
-- Stakeholder message:
-- Source references:
+- Topic:
+- Strategic priority mapping:
+- Key supporting evidence:
+- Risks and constraints:
+- Recommended next action:
+- Source links:
 - Needs human verification:
 ```
 
-9. Save and publish.
-10. Run tests from `04-test-prompts.md`.
+## 6. Test in the test pane (3 prompts with expected answers)
+
+1. Prompt: `Create a finance brief for Claysville and Jones Chapel.`  
+   Expected includes `Audience: Finance` and `PriorityTheme: Affordability and Financial Strength`.
+2. Prompt: `Create a briefing for Nuclear/Generation audience.`  
+   Expected includes `Audience: Nuclear/Generation` and `Operational Excellence and Reliability`.
+3. Prompt: `Create a CAO briefing for public comment communications.`  
+   Expected includes `Audience: CAO` and community-facing framing.
+
+## 7. Add flow as a tool
+
+1. In **Tools**, create/select flow `{{FLOW_STRATEGIC_BRIEF_PUBLISH_NAME}}`.
+2. Use trigger **When an agent calls the flow**.
+3. Inputs: `requestId`, `audience`, `priorityTheme`, `projectsIncluded`, `draftBrief`.
+4. Returned outputs: `approvalStatus`, `publishedArtifactLink`, `flowRunId`.
+
+## 8. Publish (Teams + Microsoft 365 Copilot)
+
+1. Publish in Copilot Studio.
+2. Share to Teams context `{{TVA_TEAMS_WORKSHOP_CHANNEL}}`.
+3. Publish to Microsoft 365 Copilot.
+
+## 9. Troubleshooting (3 common issues)
+
+1. **Audience output drifts**: verify prompt explicitly sets audience.
+2. **No strategic references**: confirm Strategic-Plan PDFs are indexed.
+3. **Flow publish errors**: verify `{{TVA_APPROVER_USERS}}` and list permissions.

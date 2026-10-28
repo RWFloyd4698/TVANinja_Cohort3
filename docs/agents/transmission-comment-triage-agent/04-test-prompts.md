@@ -1,18 +1,21 @@
 # Test prompts
 
-## Happy path
+## Happy path (with expected answers)
 
-1. "Resident asks whether wetlands are impacted near their property."
-2. "Stakeholder asks why project timeline changed."
-3. "Comment asks who to contact for right-of-way questions."
+1. Prompt: `Classify COM-001 and draft response.`  
+   Expected: `category=environmental`, `urgency=medium`, `needsHumanReview=true`.
+2. Prompt: `Classify COM-002 and draft response.`  
+   Expected: `category=timeline`, `urgency=low`, `recommendedOwner=transmission.owner@tva.example`.
+3. Prompt: `Classify COM-003 and draft response.`  
+   Expected: `category=property`, `urgency=high`, `recommendedOwner=transmission.owner@tva.example`.
 
 ## Edge cases
 
-1. Comment without project name.
-2. Multi-issue comment (timeline + environmental + property).
+1. Comment text with no project name.
+2. Multi-issue comment containing timeline and property concerns.
 
 ## Expected behavior
 
-- Correct category and urgency.
-- Draft response is neutral and factual.
-- `needsHumanReview` is always true.
+- Returns only valid JSON.
+- Uses approved categories: `timeline|environmental|property|process|general`.
+- Keeps `needsHumanReview` true and includes source links.

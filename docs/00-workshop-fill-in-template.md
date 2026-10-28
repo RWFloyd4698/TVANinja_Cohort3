@@ -18,15 +18,19 @@ Use this sheet before the hands-on build. Replace all placeholders in other docs
 - `{{TVA_BRIEFREQUESTS_LIST_NAME}}` (default: `ExecutiveBriefRequests`):
 - `{{TVA_ONEDRIVE_WORKSHOP_FOLDER}}`:
 - `{{TVA_SERVICE_AREA_REGION}}`:
+- `{{TVA_IRP_2026_EXEC_SUMMARY_URL}}` **[Provided by TVA]**:
 
 ## Teams and approvals
 
 - `{{TVA_TEAMS_WORKSHOP_TEAM}}`:
 - `{{TVA_TEAMS_WORKSHOP_CHANNEL}}`:
 - `{{TVA_APPROVER_GROUP_EMAIL}}`:
+- `{{TVA_APPROVER_USERS}}` (semicolon-separated named users) **[Provided by TVA]**:
 - `{{TVA_DEFAULT_OWNER_TRANSMISSION}}`:
 - `{{TVA_DEFAULT_OWNER_CAO}}`:
 - `{{TVA_DEFAULT_OWNER_IT}}`:
+- `{{TVA_PLANNER_PLAN_ID}}` **[Provided by TVA]**:
+- `{{TVA_PLANNER_BUCKET_ID}}` **[Provided by TVA]**:
 
 ## Power Automate flows
 

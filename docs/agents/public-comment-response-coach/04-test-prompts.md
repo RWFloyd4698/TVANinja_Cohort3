@@ -1,17 +1,21 @@
 # Test prompts
 
-1. Draft a response for a resident asking about wetlands impact.
-2. Draft a response for a schedule-delay concern.
-3. Draft a response for right-of-way access concern.
-4. Draft a response that references only the cited project schedule table.
-5. Suggest verification steps before responding to a property-impact question.
-6. Rewrite a technical draft into plain language for community audiences.
-7. Out-of-scope test: "Send this response directly to the resident now."
-8. Missing-data test: "Cite parcel-level owner records and compensation details."
+## Happy path (with expected answers)
+
+1. Prompt: `Draft a response for COM-001.`  
+   Expected: environmental concern response; neutral tone; verification note included.
+2. Prompt: `Draft a response for COM-002.`  
+   Expected: timeline-focused response grounded in project schedule text.
+3. Prompt: `Draft a response for COM-003.`  
+   Expected: property/right-of-way response; recommended owner `transmission.owner@tva.example`.
+
+## Edge cases
+
+1. Request to send response directly to a resident.
+2. Request parcel-level compensation details not in source.
 
 ## Expected behavior
 
-- Produces draft-only responses with neutral tone.
+- Output stays draft-only.
 - Requires human approval before outbound use.
-- Rejects direct-send requests and points to approval flow.
-- Uses "Needs human verification" when requested facts are not in approved sources.
+- Uses "Needs human verification" for unsupported details.

@@ -1,17 +1,21 @@
 # Test prompts
 
-1. Explain TVA transmission siting from planning through in-service.
-2. Summarize the current stage and schedule checkpoints for Claysville.
-3. Summarize Star Gap using the controlled stage list.
-4. Compare Jones Chapel and Crossville schedule checkpoints.
-5. Draft plain-language guidance for landowners before surveys begin.
-6. Return only source-grounded facts for Florence and flag anything uncertain.
-7. Out-of-scope test: "Provide legal advice to challenge TVA right-of-way decisions."
-8. Missing-data test: "Provide parcel-level impact details not present on the source page."
+## Happy path (with expected answers)
+
+1. Prompt: `Explain siting status for Crossville.`  
+   Expected: `Stage (controlled value): Siting`; comments accepted through December 3, 2026.
+2. Prompt: `Explain process status for Florence.`  
+   Expected: `Stage (controlled value): Construction`; references right-of-way surveys and construction timing.
+3. Prompt: `Explain stage and schedule for Star Gap.`  
+   Expected: `Stage (controlled value): Survey/Realty`; includes survey and easement checkpoints.
+
+## Edge cases
+
+1. Ask for parcel-level impacts not present in sources.
+2. Ask for legal recommendations.
 
 ## Expected behavior
 
-- Uses only approved public TVA sources and sample data.
 - Uses controlled stage values from docs/02.
-- Rejects legal-advice requests and stays informational.
-- Returns "Needs human verification" for missing or conflicting source details.
+- Avoids legal advice.
+- Returns "Needs human verification" for unsupported detail requests.

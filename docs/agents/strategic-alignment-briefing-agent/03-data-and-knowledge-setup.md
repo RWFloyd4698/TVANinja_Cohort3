@@ -1,25 +1,32 @@
 # Data and knowledge setup
 
-## SharePoint folder target
+## Knowledge folder targets
 
-`{{TVA_SHAREPOINT_SITE_URL}}/{{TVA_KNOWLEDGE_LIBRARY_NAME}}/Strategic-Plan`
+- `{{TVA_SHAREPOINT_SITE_URL}}/{{TVA_KNOWLEDGE_LIBRARY_NAME}}/Strategic-Plan`
+- `{{TVA_SHAREPOINT_SITE_URL}}/{{TVA_KNOWLEDGE_LIBRARY_NAME}}/Transmission-Projects`
+- `{{TVA_SHAREPOINT_SITE_URL}}/{{TVA_KNOWLEDGE_LIBRARY_NAME}}/Powerhouse-Stories`
+- `{{TVA_SHAREPOINT_SITE_URL}}/{{TVA_KNOWLEDGE_LIBRARY_NAME}}/Generation`
 
-## Load sequence
+## Source loading (PDF workflow)
 
-1. Upload strategic plan PDF and a text extract with section headers.
-2. Upload a curated transmission project reference table.
-3. Add optional Powerhouse story references for narrative examples.
-4. Load sample requests from `sample-data/brief-requests-sample.csv`.
+1. Open each source page in Edge.
+2. Select **Print** > **Save as PDF**.
+3. Upload PDFs to the mapped folder above.
+4. Load knowledge at least 2 days before workshop (indexing takes time).
 
-## Minimum list/library requirements
+### Exact source pages
 
-- Strategic priorities and objective statements present.
-- At least 3 source citations available for each sample briefing output.
-- One example each for Finance, Nuclear/Generation, and CAO.
-- `{{TVA_BRIEFREQUESTS_LIST_NAME}}` includes `RequestId`, `RequestedBy`, `Audience`, `DueDate`, `PriorityTheme`, `ProjectsIncluded`, `DraftBrief`, `ApprovalStatus`, and audit fields including `PublishedArtifactLink`.
+1. `https://tva-azr-eastus-cdn-ep-tvawcm-prd.azureedge.net/cdn-tvawcma/docs/default-source/about-tva/guidelines-reports/tva-strategic-plan-%28fy26-fy30%29.pdf?sfvrsn=871adc06_1`
+2. `https://www.tva.com/energy/transmission/transmission-system-projects`
+3. `https://www.tva.com/the-powerhouse`
+4. `{{TVA_IRP_2026_EXEC_SUMMARY_URL}}` **[Provided by TVA]**
 
-## Quality checks
+## Sample data loading
 
-1. Every brief references at least one strategic priority.
-2. No private/internal sources are present.
-3. Audience language is adapted by role.
+1. Import `sample-data/brief-requests-sample.csv` into `{{TVA_BRIEFREQUESTS_LIST_NAME}}`.
+2. Save the same rows as an `.xlsx` file and upload to `Strategic-Plan` (or `Generation`) for search-friendly grounding.
+3. Confirm one sample each for Finance, Nuclear/Generation, and CAO.
+
+## Verify in GCC
+
+- If using SharePoint lists directly as knowledge, verify connector behavior in GCC tenant before class.

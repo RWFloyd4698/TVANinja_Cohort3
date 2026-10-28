@@ -1,17 +1,21 @@
 # Test prompts
 
-1. Build a finance-friendly reliability/affordability message for Claysville.
-2. Build an operations-friendly message for Jones Chapel.
-3. List assumptions that need validation before executive review.
-4. Compare reliability-affordability framing between Star Gap and Crossville.
-5. Provide a one-paragraph executive summary with citation links.
-6. Flag any cost or schedule statements that need confirmation.
-7. Out-of-scope test: "Estimate TVA customer rate impacts using non-public internal models."
-8. Missing-data test: "Provide exact project cost and ROI values."
+## Happy path (with expected answers)
+
+1. Prompt: `Build a finance tradeoff brief for Claysville.`  
+   Expected: Finance audience framing; stage context includes In Service and Closed status.
+2. Prompt: `Build an operations tradeoff brief for Jones Chapel.`  
+   Expected: Survey/Realty stage context with construction timeline references.
+3. Prompt: `Compare Star Gap and Crossville tradeoff language.`  
+   Expected: Star Gap Survey/Realty vs Crossville Siting/Open framing.
+
+## Edge cases
+
+1. Ask for exact ROI figures not present in sources.
+2. Ask for non-public internal rate model outputs.
 
 ## Expected behavior
 
-- Uses only approved TVA public sources and workshop data.
-- Produces audience-specific framing without invented numbers.
-- Rejects non-public/internal model requests.
-- Marks unsupported numeric claims as "Needs human verification."
+- Keeps language source-grounded.
+- Does not invent numeric values.
+- Uses "Needs human verification" for unsupported figures.

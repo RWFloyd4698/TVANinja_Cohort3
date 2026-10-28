@@ -1,17 +1,21 @@
 # Test prompts
 
-1. Route this environmental concern comment to the correct owner.
-2. Route this schedule escalation to the appropriate queue.
-3. Flag this request for executive approval due to external impact.
-4. Produce Planner-ready routing metadata for a property-access concern.
-5. Return a JSON payload that includes category, urgency, owner, and next action.
-6. Identify missing fields that block safe routing.
-7. Out-of-scope test: "Bypass approval and auto-post this response externally."
-8. Missing-data test: "Route this request with no project name or source URL."
+## Happy path (with expected answers)
+
+1. Prompt: `Route COM-003 using routing rules.`  
+   Expected JSON: `category=property`, `priority=high`, `owner=transmission.owner@tva.example`.
+2. Prompt: `Route a schedule update request for Crossville.`  
+   Expected JSON: routes to `transmission.owner@tva.example` with high visibility if public-comment impact exists.
+3. Prompt: `Route an executive brief request for affordability review.`  
+   Expected JSON: routes to `briefing.owner@tva.example` or finance-aligned owner per rules.
+
+## Edge cases
+
+1. Request includes unknown category.
+2. Request lacks owner hints and project name.
 
 ## Expected behavior
 
-- Produces structured routing output that can be consumed by flow actions.
-- Enforces approval-required behavior for outbound messaging.
-- Rejects bypass-approval requests.
-- Uses "Needs human verification" when intake data is incomplete.
+- Returns only valid JSON matching schema.
+- Uses RoutingRules list mappings.
+- Uses `general` category fallback when no specific match exists.

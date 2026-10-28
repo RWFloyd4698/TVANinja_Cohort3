@@ -1,10 +1,27 @@
 # Power Automate integration
 
-Flow: `{{FLOW_STRATEGIC_BRIEF_PUBLISH_NAME}}`
+## Flow
 
-1. Trigger from hearing prep request list item.
-2. Generate draft hearing pack.
-3. Route to `{{TVA_APPROVER_GROUP_EMAIL}}`.
-4. On approval, set `ApprovalStatus = Published` and publish pack to SharePoint and Teams.
-5. On rejection, set `ApprovalStatus = Needs Revision`.
-6. Persist audit fields in `{{TVA_BRIEFREQUESTS_LIST_NAME}}`: `FlowRunId`, `AgentVersion`, `Approver`, `ApprovalDecision`, `DecisionTimestamp`, `PublishedArtifactLink`.
+`{{FLOW_STRATEGIC_BRIEF_PUBLISH_NAME}}`
+
+## Agent -> flow tool wiring
+
+1. In Copilot Studio tools, create/use flow with trigger **When an agent calls the flow**.
+2. Inputs: `requestId`, `audience`, `priorityTheme`, `projectsIncluded`, `draftBrief`.
+3. Return outputs: `approvalStatus`, `publishedArtifactLink`, `flowRunId`.
+
+## List-triggered wiring (Flow 3 pattern)
+
+1. SharePoint trigger: new item in `{{TVA_BRIEFREQUESTS_LIST_NAME}}`.
+2. Call published agent with Copilot Studio connector **execute-agent** action (premium; **verify in GCC**).
+3. Fallback if execute-agent is unavailable: Teams-triggered agent-to-flow handoff.
+
+## Build sequence
+
+1. Write hearing-pack artifact to `{{TVA_KNOWLEDGE_LIBRARY_NAME}}/briefs`.
+2. Set `AgentVersion = StrategicBrief v1.0`.
+3. Start approval assigned to `{{TVA_APPROVER_USERS}}` **[Provided by TVA]**.
+4. Note: group-mailbox approvals can fail in some tenants; use named users (semicolon-separated).
+5. If approved, set `ApprovalStatus = Published` and post link to `{{TVA_TEAMS_WORKSHOP_CHANNEL}}`.
+6. If rejected, set `ApprovalStatus = Needs Revision`.
+7. Persist `FlowRunId`, `AgentVersion`, `Approver`, `ApprovalDecision`, `DecisionTimestamp`, `PublishedArtifactLink`.

@@ -1,18 +1,21 @@
 # Test prompts
 
-## Happy path
+## Happy path (with expected answers)
 
-1. Create a finance-focused brief for transmission expansion and affordability.
-2. Create a nuclear/generation briefing linked to reliability and operational excellence.
-3. Create a CAO briefing for community and government engagement.
+1. Prompt: `Create a finance brief for Claysville and Jones Chapel.`  
+   Expected: `Audience: Finance`; uses affordability/financial-strength mapping from sample request REQ-001.
+2. Prompt: `Create a nuclear-generation brief for transmission projects in Alabama.`  
+   Expected: `Audience: Nuclear/Generation`; operational excellence/reliability theme (REQ-002).
+3. Prompt: `Create a CAO briefing for public comment and project communication.`  
+   Expected: `Audience: CAO`; partnerships/community impact framing (REQ-003).
 
 ## Edge cases
 
-1. Ask for a briefing with missing project details.
-2. Ask for unsupported KPI values not present in sources.
+1. Request a KPI not present in source material.
+2. Request a brief without naming a project.
 
 ## Expected behavior
 
-- Brief is audience-specific.
-- Source references are explicit.
-- Missing fields are flagged as "Needs human verification."
+- Uses the canonical output template from 01-overview.
+- Includes source links.
+- Flags unsupported claims with "Needs human verification."
