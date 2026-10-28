@@ -18,7 +18,6 @@ Use this sheet before the hands-on build. Replace all placeholders in other docs
 - `{{TVA_BRIEFREQUESTS_LIST_NAME}}` (default: `ExecutiveBriefRequests`):
 - `{{TVA_ONEDRIVE_WORKSHOP_FOLDER}}`:
 - `{{TVA_SERVICE_AREA_REGION}}`:
-- `{{TVA_IRP_2026_EXEC_SUMMARY_URL}}` **[Provided by TVA]**:
 
 ## Teams and approvals
 

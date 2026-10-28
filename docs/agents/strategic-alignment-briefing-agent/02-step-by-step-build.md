@@ -53,11 +53,11 @@ Strategic Alignment Brief
 ## 6. Test in the test pane (3 prompts with expected answers)
 
 1. Prompt: `Create a finance brief for Claysville and Jones Chapel.`  
-   Expected includes `Audience: Finance` and `PriorityTheme: Affordability and Financial Strength`.
+   Expected includes `Audience: Finance` and `Strategic priority mapping:` including Financial Strength.
 2. Prompt: `Create a briefing for Nuclear/Generation audience.`  
-   Expected includes `Audience: Nuclear/Generation` and `Operational Excellence and Reliability`.
+   Expected includes `Audience: Nuclear/Generation` and `Strategic priority mapping:` including Operational Excellence.
 3. Prompt: `Create a CAO briefing for public comment communications.`  
-   Expected includes `Audience: CAO` and community-facing framing.
+   Expected includes `Audience: CAO` and `Strategic priority mapping:` including Powerful Partnerships.
 
 ## 7. Add flow as a tool
 

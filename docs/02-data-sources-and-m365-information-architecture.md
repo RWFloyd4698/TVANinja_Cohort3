@@ -9,7 +9,7 @@
 4. TVA transmission index:  
    `https://www.tva.com/energy/transmission/transmission-system-projects`
 5. TVA transmission project detail pages by project slug.
-6. TVA 2026 IRP executive summary page/PDF URL: `{{TVA_IRP_2026_EXEC_SUMMARY_URL}}` **[Provided by TVA]**
+6. TVA 2026 IRP executive summary page/PDF URL: `https://tva-azr-eastus-cdn-ep-tvawcm-prd.azureedge.net/cdn-tvawcma/docs/default-source/environment/environmental-stewardship/integrated-resource-plan/2026-final-irp/final-2026-irp---executive-summary.pdf?sfvrsn=d3463090_3` (landing page: `https://www.tva.com/environment/final-2026-integrated-resource-plan`)
 
 ## Step-by-step setup (participants)
 
@@ -70,7 +70,7 @@ Create site `{{TVA_SHAREPOINT_SITE_URL}}` with:
 ### `Generation/`
 
 1. TVA FY26-FY30 strategic plan PDF, section/table: **Major Management Priorities** (new-generation row/content)
-2. `{{TVA_IRP_2026_EXEC_SUMMARY_URL}}` (2026 IRP Executive Summary) **[Provided by TVA]**
+2. `https://tva-azr-eastus-cdn-ep-tvawcm-prd.azureedge.net/cdn-tvawcma/docs/default-source/environment/environmental-stewardship/integrated-resource-plan/2026-final-irp/final-2026-irp---executive-summary.pdf?sfvrsn=d3463090_3` (2026 IRP Executive Summary; landing page: `https://www.tva.com/environment/final-2026-integrated-resource-plan`)
 
 ### `Powerhouse-Stories/`
 

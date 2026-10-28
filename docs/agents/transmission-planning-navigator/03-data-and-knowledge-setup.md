@@ -8,7 +8,7 @@
 ## Source loading (PDF workflow)
 
 1. Open each source page in Edge.
-2. Select **Print** > **Save as PDF**.
+2. For HTML sources, select **Print** > **Save as PDF**. For PDF sources (Strategic Plan and IRP Executive Summary), download the PDF directly.
 3. Upload PDFs to the mapped folder above.
 4. Load knowledge at least 2 days before workshop (indexing takes time).
 
